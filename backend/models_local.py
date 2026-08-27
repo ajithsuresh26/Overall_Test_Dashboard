@@ -51,9 +51,11 @@ class LocalAnomaly(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     robot_id = Column(String(50), nullable=False)
-    type = Column(String(50), nullable=False)
+    type = Column(String(100), nullable=False)
+    observation_type = Column(String(150), nullable=True)
+    activity = Column(String(150), nullable=True)
     description = Column(Text, nullable=True)
-    image_url = Column(Text, nullable=True)  # Holds raw localized base64 arrays or asset paths
+    image_url = Column(Text, nullable=True)
     timestamp = Column(DateTime, server_default=func.now())
 
 

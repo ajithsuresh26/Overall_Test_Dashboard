@@ -119,7 +119,6 @@ const EmailConfigPanel = ({ clientId, onClose, triggerToast }) => {
         api.get(`/api/alerts/email-config/${clientId}`)
             .then(r => {
                 if (r.data && r.data.smtp_user) {
-                    // Populate fields using a mask character proxy for the password
                     setCfg({ ...r.data, smtp_pass: '••••••••' });
                     setSavedConfigRecord(r.data);
                     const matched = Object.entries(SMTP_PRESETS).find(([, v]) => v.host === r.data.smtp_host);
@@ -184,7 +183,7 @@ const EmailConfigPanel = ({ clientId, onClose, triggerToast }) => {
         if (!cleanCfg.smtp_user || !cleanCfg.smtp_pass) {
             setTestResult({
                 success: false,
-                message: "⚠️ Verification Aborted: Input fields must not be empty before testing connection settings."
+                message: "⚠️ Input fields must not be empty before testing connection settings."
             });
             return;
         }
@@ -199,17 +198,17 @@ const EmailConfigPanel = ({ clientId, onClose, triggerToast }) => {
             if (response.data?.status === 'sent' || response.status === 200) {
                 setTestResult({
                     success: true,
-                    message: `SMTP Handshake Succeeded! Verification array message targeted to ${cleanCfg.smtp_user}. Settings saved cleanly.`
+                    message: `SMTP Handshake Succeeded! Verification message targeted to ${cleanCfg.smtp_user}.`
                 });
                 await api.post(`/api/alerts/email-config?client_id=${clientId}`, cleanCfg);
                 triggerToast('SMTP settings committed.', 'success');
-                loadConfig(); // Refresh down list view status
+                loadConfig();
             }
         } catch (e) {
             const status = e.response?.status;
             let prefix = '';
-            if (status === 504) prefix = '🌐 Network Layer Blocked: ';
-            else if (status === 401) prefix = '🔑 Credentials Rejected: ';
+            if (status === 504) prefix = '🌐 Network Blocked: ';
+            else if (status === 401) prefix = '🔑 Auth Rejected: ';
 
             setTestResult({
                 success: false,
@@ -269,7 +268,7 @@ const EmailConfigPanel = ({ clientId, onClose, triggerToast }) => {
                             <button type="button" onClick={checkPortReachable} disabled={probing}
                                 className="flex items-center gap-1.5 text-[10px] font-bold text-slate-500 hover:text-slate-800 transition-colors">
                                 <RefreshCw size={11} className={probing ? 'animate-spin' : ''} />
-                                {probing ? 'Checking connection path…' : 'Quick check: Test network port reachability'}
+                                {probing ? 'Checking connection…' : 'Quick check: Test network port reachability'}
                             </button>
                             {probeResult && (
                                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${probeResult.reachable ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'}`}>
@@ -277,12 +276,6 @@ const EmailConfigPanel = ({ clientId, onClose, triggerToast }) => {
                                 </span>
                             )}
                         </div>
-                        
-                        {probeResult && !probeResult.reachable && (
-                            <p className="text-[10px] font-medium bg-rose-50 text-rose-700 p-2 rounded-xl border border-rose-100 leading-relaxed font-mono">
-                                {probeResult.detail}
-                            </p>
-                        )}
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div>
@@ -303,73 +296,22 @@ const EmailConfigPanel = ({ clientId, onClose, triggerToast }) => {
                                 </div>
                             </div>
                         </div>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                            <div>
-                                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">Sender Alias Display</label>
-                                <input type="text" value={cfg.sender_name} onChange={e => updateField('sender_name', e.target.value)}
-                                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:bg-white focus:border-slate-900 transition-all font-medium" />
-                            </div>
-                            <div className="flex items-center h-full pt-4">
-                                <label className="flex items-center gap-2.5 cursor-pointer select-none">
-                                    <input type="checkbox" checked={cfg.use_tls} onChange={e => updateField('use_tls', e.target.checked)} className="w-4 h-4 text-slate-900 border-slate-300 rounded focus:ring-slate-900 accent-slate-900" />
-                                    <span className="text-xs font-bold text-slate-700">Use Secure TLS Architecture</span>
-                                </label>
-                            </div>
-                        </div>
                     </div>
 
                     {testResult && (
                         <div className={`p-3 rounded-xl border text-xs font-medium flex flex-col gap-1 ${testResult.success ? 'bg-emerald-50 text-emerald-800 border-emerald-200' : 'bg-rose-50 text-rose-800 border-rose-200'}`}>
-                            <div className="font-bold flex items-center gap-1.5">
-                                {testResult.success ? '✅ Validation Test Passed' : '❌ Target Validation Failed'}
-                            </div>
-                            <p className="font-mono text-[10px] leading-relaxed break-all bg-white/60 p-2 rounded border border-black/5 mt-1 whitespace-pre-wrap">
-                                {testResult.message}
-                            </p>
+                            <p className="font-bold">{testResult.success ? '✅ Validation Passed' : '❌ Validation Failed'}</p>
+                            <p className="font-mono text-[10px] break-all">{testResult.message}</p>
                         </div>
                     )}
-
-                    {/* ── Saved Configuration Down Side Table ── */}
-                    <div className="pt-4 border-t border-slate-100">
-                        <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Saved Configuration Registry Active Status</label>
-                        {savedConfigRecord ? (
-                            <div className="border border-slate-200 rounded-xl overflow-hidden bg-slate-50/50">
-                                <table className="w-full text-left border-collapse text-[11px]">
-                                    <thead>
-                                        <tr className="bg-slate-100/80 text-slate-500 font-bold border-b border-slate-200">
-                                            <th className="p-2.5">SMTP Server / Host</th>
-                                            <th className="p-2.5">Active Account User</th>
-                                            <th className="p-2.5 text-center">Port</th>
-                                            <th className="p-2.5 text-right">TLS Mode</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr className="font-medium text-slate-700">
-                                            <td className="p-2.5 font-mono font-bold text-slate-900">{savedConfigRecord.smtp_host}</td>
-                                            <td className="p-2.5 truncate max-w-[140px]">{savedConfigRecord.smtp_user}</td>
-                                            <td className="p-2.5 text-center font-bold text-slate-600">{savedConfigRecord.smtp_port}</td>
-                                            <td className="p-2.5 text-right font-bold text-indigo-600">{savedConfigRecord.use_tls ? 'Explicit/On' : 'Implicit'}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        ) : (
-                            <div className="text-center p-4 border border-dashed border-slate-200 rounded-xl text-xs text-slate-400 font-medium">
-                                No active delivery configurations committed to local database arrays yet.
-                            </div>
-                        )}
-                    </div>
                 </div>
 
                 <div className="px-6 py-4 border-t border-slate-100 flex justify-end items-center bg-slate-50 gap-2.5 flex-shrink-0">
-                    <button type="button" onClick={onClose} className="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-200 rounded-xl transition-all">
-                        Cancel
-                    </button>
+                    <button type="button" onClick={onClose} className="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-200 rounded-xl transition-all">Cancel</button>
                     <button type="button" onClick={testAndSaveConnection} disabled={testing || !cfg.smtp_user}
                         className="flex items-center gap-1.5 px-4 py-2 bg-slate-900 hover:bg-slate-800 disabled:bg-slate-900/40 text-white rounded-xl text-xs font-bold transition-all shadow-sm">
                         <RefreshCw size={13} className={testing ? "animate-spin" : ""} />
-                        {testing ? 'Performing Verification…' : 'Verify Handshake & Update'}
+                        {testing ? 'Testing…' : 'Verify & Save'}
                     </button>
                 </div>
             </div>
@@ -382,7 +324,7 @@ const OfficerPanel = ({ clientId, onClose, triggerToast }) => {
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [editingId, setEditingId] = useState(undefined);
-    const BLANK = { client_id: clientId, name: '', role: 'Safety Officer', email: '', phone: '', whatsapp: '', alert_email: true, alert_sms: false, alert_whatsapp: false, min_severity: 'Low' };
+    const BLANK = { client_id: clientId, name: '', role: 'Safety Officer', email: '' };
     const [form, setForm] = useState(BLANK);
 
     const load = async () => {
@@ -398,43 +340,32 @@ const OfficerPanel = ({ clientId, onClose, triggerToast }) => {
     };
     useEffect(() => { load(); }, [clientId]);
 
-    const startEdit = (o) => { setEditingId(o.id); setForm({ ...o, client_id: clientId }); };
-    const startNew = () => { setEditingId(null); setForm({ ...BLANK, client_id: clientId }); };
-    const cancelEdit = () => { setEditingId(undefined); setForm(BLANK); };
-
     const save = async () => {
-        if (!form.name) return triggerToast('Name field is required.', 'error');
-        
-        if (form.email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(form.email.trim())) {
-                return triggerToast('Invalid email structure context format.', 'error');
-            }
-        }
-
-        if (form.alert_email && !form.email) return triggerToast('Email address required if email path toggled.', 'error');
+        if (!form.name) return triggerToast('Name is required.', 'error');
         setSaving(true);
         try {
             editingId
                 ? await api.put(`/api/alerts/officers/${editingId}`, form)
                 : await api.post('/api/alerts/officers', form);
-            triggerToast(editingId ? 'Officer updated successfully.' : 'Officer added successfully.', 'success');
-            cancelEdit(); load();
+            triggerToast(editingId ? 'Officer updated.' : 'Officer added.', 'success');
+            setEditingId(undefined); 
+            setForm(BLANK);
+            load();
         } catch (e) { 
-            triggerToast(e.response?.data?.detail || 'Failed to save entries.', 'error'); 
+            triggerToast(e.response?.data?.detail || 'Failed to save.', 'error'); 
         } finally { 
             setSaving(false); 
         }
     };
 
     const remove = async (id) => {
-        if (!window.confirm('Remove this officer profile registry record?')) return;
+        if (!window.confirm('Remove this officer profile?')) return;
         try {
             await api.delete(`/api/alerts/officers/${id}`); 
-            triggerToast('Safety officer record removed cleanly.', 'success');
+            triggerToast('Safety officer removed.', 'success');
             load();
         } catch (err) {
-            triggerToast('Failed to execute database purge deletion.', 'error');
+            triggerToast('Failed to delete officer.', 'error');
         }
     };
 
@@ -444,86 +375,49 @@ const OfficerPanel = ({ clientId, onClose, triggerToast }) => {
                 <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 flex-shrink-0">
                     <div>
                         <h2 className="text-sm font-bold text-slate-900 uppercase tracking-tight">Safety Officers</h2>
-                        <p className="text-[11px] text-slate-500 font-medium mt-0.5">Who receives anomaly alerts</p>
+                        <p className="text-[11px] text-slate-500 font-medium mt-0.5">Manage alert recipients</p>
                     </div>
                     <div className="flex items-center gap-2">
                         {editingId === undefined && (
-                            <button onClick={startNew} className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold shadow-sm">
+                            <button onClick={() => { setEditingId(null); setForm(BLANK); }} className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold shadow-sm">
                                 <Plus size={13} /> Add Officer
                             </button>
                         )}
                         <button onClick={onClose} className="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 transition-colors"><X size={16} /></button>
                     </div>
                 </div>
+
                 <div className="overflow-y-auto flex-1 px-6 py-4 space-y-4">
                     {editingId !== undefined && (
                         <div className="bg-slate-50 rounded-xl p-4 border border-slate-200/60 space-y-3">
-                            <h3 className="text-[11px] font-bold text-slate-700 uppercase tracking-wide">
-                                {editingId ? 'Edit Officer' : 'New Officer'}
-                            </h3>
                             <div className="grid grid-cols-2 gap-3">
-                                <div className="flex flex-col">
-                                    <label className="text-[10px] font-bold text-slate-400 uppercase mb-1 ml-1">Full Name</label>
-                                    <input type="text" value={form.name || ''} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="John Smith"
-                                        className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-slate-900 transition-all" />
-                                </div>
-                                <div className="flex flex-col">
-                                    <label className="text-[10px] font-bold text-slate-400 uppercase mb-1 ml-1">Role</label>
-                                    <input type="text" value={form.role || ''} onChange={e => setForm({ ...form, role: e.target.value })} placeholder="Safety Officer"
-                                        className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-slate-900 transition-all" />
-                                </div>
+                                <input type="text" value={form.name || ''} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="Full Name" className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none" />
+                                <input type="text" value={form.role || ''} onChange={e => setForm({ ...form, role: e.target.value })} placeholder="Role" className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none" />
                             </div>
-                            <div className="flex flex-col">
-                                    <label className="text-[10px] font-bold text-slate-400 uppercase mb-1 ml-1">Email Address</label>
-                                    <input type="email" value={form.email || ''} onChange={e => setForm({ ...form, email: e.target.value })} placeholder="officer@company.com"
-                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:bg-white focus:border-slate-900 transition-all" />
-                            </div>
-                            <div>
-                                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">Alert Channels</label>
-                                <div className="flex gap-3">
-                                    <label className="flex items-center gap-2 cursor-pointer">
-                                        <input type="checkbox" checked={form.alert_email} onChange={e => setForm({ ...form, alert_email: e.target.checked })} className="w-3.5 h-3.5 border-slate-300 rounded text-slate-900 focus:ring-slate-950" />
-                                        <span className="text-xs font-semibold text-slate-600">Email</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div className="flex gap-2 pt-1">
-                                <button onClick={cancelEdit} className="flex-1 py-2 text-xs font-semibold text-slate-500 hover:bg-slate-200 border border-slate-200 rounded-xl transition-all">Cancel</button>
-                                <button onClick={save} disabled={saving} className="flex-1 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold transition-all shadow-sm">
-                                    {saving ? 'Saving…' : editingId ? 'Update' : 'Add Officer'}
-                                </button>
+                            <input type="email" value={form.email || ''} onChange={e => setForm({ ...form, email: e.target.value })} placeholder="Email Address" className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none" />
+                            <div className="flex gap-2">
+                                <button onClick={() => { setEditingId(undefined); setForm(BLANK); }} className="flex-1 py-2 text-xs text-slate-500 hover:bg-slate-200 rounded-xl border border-slate-200">Cancel</button>
+                                <button onClick={save} disabled={saving} className="flex-1 py-2 bg-slate-900 text-white rounded-xl text-xs font-bold">{saving ? 'Saving…' : 'Save'}</button>
                             </div>
                         </div>
                     )}
+
                     {loading ? (
-                        <div className="py-10 text-center text-slate-400 text-xs font-medium">Loading…</div>
-                    ) : officers.length === 0 ? (
-                        <div className="py-12 text-center">
-                            <Shield size={28} className="mx-auto text-slate-300 mb-2" />
-                            <p className="text-xs font-bold text-slate-500">No officers yet</p>
-                            <p className="text-[11px] text-slate-400 mt-0.5">Add officers to receive anomaly alerts</p>
-                        </div>
+                        <div className="py-10 text-center text-slate-400 text-xs">Loading…</div>
                     ) : officers.map(o => (
-                        <div key={o.id} className="flex items-center justify-between p-3.5 bg-slate-50/60 rounded-xl border border-slate-100 hover:bg-slate-50 transition-all">
-                            <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 bg-slate-900 text-white rounded-lg flex items-center justify-center font-bold text-xs shadow-sm">
-                                    {o.name.charAt(0).toUpperCase()}
-                                </div>
-                                <div>
-                                    <p className="text-xs font-bold text-slate-800">{o.name}</p>
-                                    <p className="text-[10px] text-slate-400 font-medium">{o.role}</p>
-                                    <div className="flex items-center gap-1 mt-1">
-                                        {o.alert_email && <span className="p-1 bg-slate-100 text-slate-600 rounded" title={o.email}>{CHANNEL_ICON.email}</span>}
-                                    </div>
-                                </div>
+                        <div key={o.id} className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <div>
+                                <p className="text-xs font-bold text-slate-800">{o.name}</p>
+                                <p className="text-[10px] text-slate-400">{o.role} · {o.email}</p>
                             </div>
                             <div className="flex items-center gap-1">
-                                <button onClick={() => startEdit(o)} className="p-1.5 hover:bg-slate-200 text-slate-400 hover:text-slate-700 rounded-lg transition-all"><Edit3 size={13} /></button>
-                                <button onClick={() => remove(o.id)} className="p-1.5 hover:bg-red-50 text-slate-400 hover:text-red-600 rounded-lg transition-all"><Trash2 size={13} /></button>
+                                <button onClick={() => { setEditingId(o.id); setForm(o); }} className="p-1.5 text-slate-400 hover:text-slate-700"><Edit3 size={13} /></button>
+                                <button onClick={() => remove(o.id)} className="p-1.5 text-slate-400 hover:text-red-600"><Trash2 size={13} /></button>
                             </div>
                         </div>
                     ))}
                 </div>
+
                 <div className="px-6 py-3.5 border-t border-slate-100 flex-shrink-0 bg-slate-50">
                     <button onClick={onClose} className="w-full py-2 text-xs font-bold text-slate-600 hover:bg-slate-200 rounded-xl transition-all">Done</button>
                 </div>
@@ -537,12 +431,12 @@ const AnomalyCard = ({ a, isSelected, onSelect, onLightbox, onReAlert, sending }
     const imgUrl = resolveImageUrl(a.image_url);
 
     return (
-        <div className={`bg-white border rounded-xl p-4 transition-all duration-200 hover:border-slate-300 hover:shadow-md cursor-pointer relative group flex flex-col ${isSelected ? 'border-slate-990 ring-1 ring-slate-900 shadow-sm' : 'border-slate-200/80'}`} onClick={() => onSelect(a)}>
+        <div className={`bg-white border rounded-xl p-4 transition-all duration-200 hover:border-slate-300 hover:shadow-md cursor-pointer relative flex flex-col ${isSelected ? 'border-slate-900 ring-1 ring-slate-900 shadow-sm' : 'border-slate-200/80'}`} onClick={() => onSelect(a)}>
             {imgUrl ? (
                 <div onClick={e => { e.stopPropagation(); onLightbox(imgUrl); }} className="w-full h-44 sm:h-56 relative rounded-lg overflow-hidden border border-slate-100 bg-slate-50 flex-shrink-0 mb-4 cursor-zoom-in group/img">
-                    <img src={imgUrl} alt="Capture payload" className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-102" />
+                    <img src={imgUrl} alt="Payload" className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-102" />
                     <div className="absolute inset-0 bg-slate-950/10 opacity-0 group-hover/img:opacity-100 transition-all flex items-center justify-center">
-                        <span className="bg-white/90 text-[10px] font-bold px-2 py-1 rounded shadow-xs text-slate-800 flex items-center gap-1">
+                        <span className="bg-white/90 text-[10px] font-bold px-2 py-1 rounded text-slate-800 flex items-center gap-1">
                             <Maximize2 size={11} /> Open Image
                         </span>
                     </div>
@@ -556,39 +450,27 @@ const AnomalyCard = ({ a, isSelected, onSelect, onLightbox, onReAlert, sending }
 
             <div className="flex-1 min-w-0 w-full">
                 <div className="flex items-center justify-between gap-2 mt-1">
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className={`inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full border ${at.color}`}>
-                            {at.icon} {at.label}
-                        </span>
-                    </div>
-                    <span className="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 border border-slate-200/60 px-1.5 py-0.5 rounded flex-shrink-0 flex items-center gap-1">
-                        <Bot size={11} className="text-slate-400" />
-                        {a.robot_id}
+                    <span className={`inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full border ${at.color}`}>
+                        {at.icon} {at.label}
+                    </span>
+                    <span className="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 border border-slate-200/60 px-1.5 py-0.5 rounded flex items-center gap-1">
+                        <Bot size={11} className="text-slate-400" /> {a.robot_id}
                     </span>
                 </div>
 
-                <p className="text-xs text-slate-600 mt-2.5 font-medium line-clamp-2 leading-relaxed">{a.description}</p>
-                
-                <div className="flex items-center justify-between gap-2 mt-3 flex-wrap pt-2 border-t border-slate-50">
-                    <p className="text-[10px] text-slate-400 font-mono font-medium">
+                <p className="text-xs text-slate-600 mt-2.5 font-medium line-clamp-2">{a.description}</p>
+                <div className="flex items-center justify-between gap-2 mt-3 pt-2 border-t border-slate-50">
+                    <p className="text-[10px] text-slate-400 font-mono">
                         {a.timestamp ? new Date(a.timestamp).toLocaleString() : 'N/A'}
                     </p>
                 </div>
             </div>
 
             {isSelected && (
-                <div className="mt-3 pt-3 border-t border-slate-100 space-y-2.5 animate-in fade-in duration-200">
-                    <div className="grid grid-cols-2 gap-2 text-[11px]">
-                        <div className="bg-slate-50 rounded-lg p-2 border border-slate-100">
-                            <p className="text-slate-400 font-bold uppercase text-[9px]">Anomaly Type</p>
-                            <p className="font-bold text-slate-700 flex items-center gap-1 mt-0.5">{at.icon} {at.label}</p>
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-end">
-                        <button onClick={e => { e.stopPropagation(); onReAlert(a); }} disabled={sending} className="flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg px-3 py-1.5 text-xs font-bold shadow-sm">
-                            <Send size={11} /> {sending ? 'Sending…' : 'Re-alert Officers'}
-                        </button>
-                    </div>
+                <div className="mt-3 pt-3 border-t border-slate-100 flex justify-end">
+                    <button onClick={e => { e.stopPropagation(); onReAlert(a); }} disabled={sending} className="flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg px-3 py-1.5 text-xs font-bold shadow-sm">
+                        <Send size={11} /> {sending ? 'Sending…' : 'Re-alert Officers'}
+                    </button>
                 </div>
             )}
         </div>
@@ -627,14 +509,14 @@ const AnomalyTable = ({ anomalies, onLightbox }) => {
                                     <td className="py-3 px-4 text-[11px] font-semibold text-slate-500">
                                         {ano.timestamp ? new Date(ano.timestamp).toLocaleString() : 'N/A'}
                                     </td>
-                                    <td className="py-3 px-4 text-[11px] font-bold text-slate-800 uppercase tracking-tight">{ano.robot_id}</td>
+                                    <td className="py-3 px-4 text-[11px] font-bold text-slate-800 uppercase">{ano.robot_id}</td>
                                     <td className="py-3 px-4">
                                         <span className={`inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full border ${at.color}`}>
                                             {at.icon} {at.label}
                                         </span>
                                     </td>
                                     <td className="py-3 px-4 text-right">
-                                        <button onClick={() => imgUrl && onLightbox(imgUrl)} disabled={!imgUrl} className={`p-1.5 rounded-lg transition-colors ${imgUrl ? 'hover:bg-slate-100 text-slate-700' : 'text-slate-200 cursor-not-allowed'}`}>
+                                        <button onClick={() => imgUrl && onLightbox(imgUrl)} disabled={!imgUrl} className={`p-1.5 rounded-lg ${imgUrl ? 'hover:bg-slate-100 text-slate-700' : 'text-slate-200 cursor-not-allowed'}`}>
                                             <Eye size={14} />
                                         </button>
                                     </td>
@@ -648,10 +530,9 @@ const AnomalyTable = ({ anomalies, onLightbox }) => {
     );
 };
 
-const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
+const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect, anchorDate, setAnchorDate, onSyncDateFilter }) => {
     const [timeScale, setTimeScale] = useState('day');
     const [chartMode, setChartMode] = useState('bar');
-    const [anchorDate, setAnchorDate] = useState(new Date());
     const dateInputRef = useRef(null);
 
     const getTypeDistribution = () => {
@@ -669,19 +550,16 @@ const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
 
     const getTrendData = () => {
         if (!anomalies || anomalies.length === 0) return [];
-        
         const chronologicalAnomalies = [...anomalies].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
         
         if (timeScale === 'day') {
             const formattedDayTitle = anchorDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
             const anchorDateStr = anchorDate.toDateString();
-
             const groupMap = {};
             for (let hour = 0; hour < 24; hour++) {
                 const hourString = `${String(hour).padStart(2, '0')}:00`;
                 groupMap[`${formattedDayTitle} ${hourString}`] = 0;
             }
-            
             chronologicalAnomalies.forEach(a => {
                 if (!a.timestamp) return;
                 const d = new Date(a.timestamp);
@@ -690,7 +568,6 @@ const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
                     groupMap[hourKey] = (groupMap[hourKey] || 0) + 1;
                 }
             });
-            
             return Object.entries(groupMap).map(([name, count]) => ({ name, Incidents: count }));
         }
 
@@ -700,7 +577,6 @@ const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
                 if (!a.timestamp) return;
                 const d = new Date(a.timestamp);
                 if (isNaN(d.getTime())) return;
-                
                 if (d.getMonth() === anchorDate.getMonth() && d.getFullYear() === anchorDate.getFullYear()) {
                     const firstDay = d.getDate() - d.getDay();
                     const weekStart = new Date(d.getFullYear(), d.getMonth(), firstDay);
@@ -716,17 +592,9 @@ const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
             if (!a.timestamp) return;
             const d = new Date(a.timestamp);
             if (isNaN(d.getTime())) return; 
-            
-            let key = '';
-            if (timeScale === 'month') {
-                if (d.getFullYear() === anchorDate.getFullYear()) {
-                    key = d.toLocaleDateString(undefined, { month: 'short' });
-                } else {
-                    return;
-                }
-            } else {
-                key = String(d.getFullYear());
-            }
+            let key = timeScale === 'month' && d.getFullYear() === anchorDate.getFullYear()
+                ? d.toLocaleDateString(undefined, { month: 'short' })
+                : String(d.getFullYear());
             groupMap[key] = (groupMap[key] || 0) + 1;
         });
         return Object.entries(groupMap).map(([name, count]) => ({ name, Incidents: count }));
@@ -742,6 +610,7 @@ const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
                 const newDate = new Date(anchorDate);
                 newDate.setFullYear(parsedYear);
                 setAnchorDate(newDate);
+                onSyncDateFilter(newDate);
                 setTimeScale('month');
             }
         } else if (timeScale === 'month') {
@@ -751,6 +620,7 @@ const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
                 const newDate = new Date(anchorDate);
                 newDate.setMonth(foundIndex);
                 setAnchorDate(newDate);
+                onSyncDateFilter(newDate);
                 setTimeScale('week');
             }
         } else if (timeScale === 'week') {
@@ -762,6 +632,7 @@ const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
                 if (monthIdx !== -1 && !isNaN(dayNum)) {
                     const newDate = new Date(anchorDate.getFullYear(), monthIdx, dayNum);
                     setAnchorDate(newDate);
+                    onSyncDateFilter(newDate);
                 }
             }
             setTimeScale('day');
@@ -770,21 +641,14 @@ const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
 
     const shiftAnchorDate = (amount) => {
         const next = new Date(anchorDate);
-        if (timeScale === 'day') {
-            next.setDate(next.getDate() + amount);
-        } else if (timeScale === 'week') {
-            next.setDate(next.getDate() + (amount * 7));
-        } else if (timeScale === 'month') {
-            next.setMonth(next.getMonth() + amount);
-        } else {
-            next.setFullYear(next.getFullYear() + amount);
-        }
+        if (timeScale === 'day') next.setDate(next.getDate() + amount);
+        else if (timeScale === 'week') next.setDate(next.getDate() + (amount * 7));
+        else if (timeScale === 'month') next.setMonth(next.getMonth() + amount);
+        else next.setFullYear(next.getFullYear() + amount);
 
-        if (next > new Date()) {
-            setAnchorDate(new Date());
-        } else {
-            setAnchorDate(next);
-        }
+        const validDate = next > new Date() ? new Date() : next;
+        setAnchorDate(validDate);
+        onSyncDateFilter(validDate);
     };
 
     const handleCalendarSelect = (e) => {
@@ -795,20 +659,9 @@ const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
         newDate.setMonth(m - 1);
         newDate.setDate(d);
 
-        if (newDate > new Date()) {
-            newDate = new Date();
-        }
+        if (newDate > new Date()) newDate = new Date();
         setAnchorDate(newDate);
-    };
-
-    const openCalendarPicker = () => {
-        if (dateInputRef.current) {
-            try {
-                dateInputRef.current.showPicker();
-            } catch (err) {
-                dateInputRef.current.click();
-            }
-        }
+        onSyncDateFilter(newDate);
     };
 
     const trendData = getTrendData();
@@ -828,7 +681,7 @@ const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
         return `${y}-${m}-${d}`;
     };
 
-    const isFutureBlockRestricted = anchorDate.toDateString() === new Date().toDateString() || anchorDate > new Date();
+    const isFutureRestricted = anchorDate.toDateString() === new Date().toDateString() || anchorDate > new Date();
 
     return (
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
@@ -837,24 +690,20 @@ const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
                     <div className="flex items-center gap-2">
                         <div className="p-2 bg-slate-100 text-slate-800 rounded-lg"><BarChart3 size={15} /></div>
                         <div>
-                            <h3 className="text-xs font-bold text-slate-800 uppercase tracking-tight">Incident Analytics Framework</h3>
-                            <p className="text-[10px] text-slate-400">Drill down levels: Year → Month → Week → Day</p>
+                            <h3 className="text-xs font-bold text-slate-800 uppercase">Incident Analytics Framework</h3>
+                            <p className="text-[10px] text-slate-400">Drill down: Year → Month → Week → Day</p>
                         </div>
                     </div>
                     
                     <div className="flex items-center gap-3 flex-wrap">
                         <div className="flex items-center bg-slate-50 border border-slate-200 rounded-lg px-2 py-0.5 gap-2 text-xs font-semibold">
                             <button onClick={() => shiftAnchorDate(-1)} className="p-1 hover:bg-slate-200 rounded"><ChevronLeft size={12} /></button>
-                            
-                            <button onClick={openCalendarPicker} className="flex items-center gap-1 hover:bg-slate-200 px-2 py-1 rounded transition-colors text-slate-600">
+                            <button onClick={() => dateInputRef.current && (dateInputRef.current.showPicker ? dateInputRef.current.showPicker() : dateInputRef.current.click())} className="flex items-center gap-1 hover:bg-slate-200 px-2 py-1 rounded text-slate-600">
                                 <CalendarIcon size={12} className="text-slate-400" />
                                 <span className="text-[10px] font-mono min-w-[70px] text-center">{getContextTitle()}</span>
-                                <input ref={dateInputRef} type="date" max={new Date().toISOString().split("T")[0]} value={getFormatedHTMLDateValue()} onChange={handleCalendarSelect} 
-                                    className="w-0 h-0 opacity-0 pointer-events-none absolute" />
+                                <input ref={dateInputRef} type="date" max={new Date().toISOString().split("T")[0]} value={getFormatedHTMLDateValue()} onChange={handleCalendarSelect} className="w-0 h-0 opacity-0 pointer-events-none absolute" />
                             </button>
-
-                            <button onClick={() => shiftAnchorDate(1)} disabled={isFutureBlockRestricted} 
-                                className={`p-1 rounded ${isFutureBlockRestricted ? 'text-slate-300 bg-slate-100 cursor-not-allowed' : 'hover:bg-slate-200'}`}>
+                            <button onClick={() => shiftAnchorDate(1)} disabled={isFutureRestricted} className={`p-1 rounded ${isFutureRestricted ? 'text-slate-300 bg-slate-100 cursor-not-allowed' : 'hover:bg-slate-200'}`}>
                                 <ChevronRight size={12} />
                             </button>
                         </div>
@@ -875,7 +724,7 @@ const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
                     {trendData.length === 0 ? (
                         <div className="h-full flex flex-col items-center justify-center text-slate-300 gap-1.5">
                             <CalendarIcon size={24} className="opacity-40" />
-                            <p className="text-xs">No entries mapped onto current date timeline filters</p>
+                            <p className="text-xs">No entries mapped onto timeline</p>
                         </div>
                     ) : chartMode === 'bar' ? (
                         <ResponsiveContainer width="100%" height="100%">
@@ -884,20 +733,23 @@ const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
                                 <XAxis dataKey="name" stroke="#94A3B8" fontSize={9} />
                                 <YAxis stroke="#94A3B8" fontSize={9} axisLine={false} />
                                 <Tooltip content={<CustomChartTooltip />} />
-                                <Bar dataKey="Incidents" fill="#6366F1" radius={[4, 4, 0, 0]} barSize={24} className="cursor-pointer" />
+                                <Bar dataKey="Incidents" fill="#6366F1" radius={[4, 4, 0, 0]} barSize={24} />
                             </BarChart>
                         </ResponsiveContainer>
                     ) : (
                         <ResponsiveContainer width="100%" height="100%">
                             <AreaChart data={trendData} onClick={handleChartClick} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
                                 <defs>
-                                    <linearGradient id="incidentColor" x1="0" y1="0" x2="0" y2="1"><stop offset="5%" stopColor="#6366F1" stopOpacity={0.15}/><stop offset="95%" stopColor="#6366F1" stopOpacity={0}/></linearGradient>
+                                    <linearGradient id="incidentColor" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="5%" stopColor="#6366F1" stopOpacity={0.15}/>
+                                        <stop offset="95%" stopColor="#6366F1" stopOpacity={0}/>
+                                    </linearGradient>
                                 </defs>
                                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#F1F5F9" />
                                 <XAxis dataKey="name" stroke="#94A3B8" fontSize={9} />
                                 <YAxis stroke="#94A3B8" fontSize={9} axisLine={false} />
                                 <Tooltip content={<CustomChartTooltip />} />
-                                <Area type="monotone" dataKey="Incidents" stroke="#6366F1" strokeWidth={2} fill="url(#incidentColor)" className="cursor-pointer" />
+                                <Area type="monotone" dataKey="Incidents" stroke="#6366F1" strokeWidth={2} fill="url(#incidentColor)" />
                             </AreaChart>
                         </ResponsiveContainer>
                     )}
@@ -908,14 +760,14 @@ const AdvancedAnalyticsPanel = ({ anomalies, onTriggerFilterRedirect }) => {
                 <div className="flex items-center gap-2">
                     <div className="p-2 bg-indigo-50 text-indigo-700 rounded-lg"><PieChart size={15} /></div>
                     <div>
-                        <h3 className="text-xs font-bold text-slate-800 uppercase tracking-tight">Classification Profile</h3>
-                        <p className="text-[10px] text-slate-400">Anomalies share metrics</p>
+                        <h3 className="text-xs font-bold text-slate-800 uppercase">Classification Profile</h3>
+                        <p className="text-[10px] text-slate-400">Anomalies distribution</p>
                     </div>
                 </div>
 
                 <div className="h-40 w-full relative block my-3">
                     {typePieData.length === 0 ? (
-                        <p className="text-[11px] text-slate-400 text-center pt-16">No share signatures logged</p>
+                        <p className="text-[11px] text-slate-400 text-center pt-16">No signatures logged</p>
                     ) : (
                         <ResponsiveContainer width="100%" height="100%">
                             <RePieChart>
@@ -968,6 +820,7 @@ const ClientDashboard = () => {
     const [robotFilter, setRobotFilter] = useState('All');
     const [typeFilter, setTypeFilter] = useState('All');
     const [dateFilter, setDateFilter] = useState(''); 
+    const [anchorDate, setAnchorDate] = useState(new Date());
     const [sending, setSending] = useState(false);
     const [selectedAnomaly, setSelectedAnomaly] = useState(null);
     const [showManual, setShowManual] = useState(false);
@@ -978,8 +831,6 @@ const ClientDashboard = () => {
     
     const [manualForm, setManualForm] = useState({ officer_ids: [], types: [], custom_type: '', description: '' });
     const [profileOpen, setProfileOpen] = useState(false);
-
-    // ── INTERACTIVE MOBILE TOAST APPLICATION NOTIFICATION STATE VARIABLES ──
     const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
 
     const profileRef = useRef(null);
@@ -1004,7 +855,6 @@ const ClientDashboard = () => {
         if (!clientId) return;
         try {
             const cleanStringClientId = String(clientId).trim();
-
             const [anom, logs, offs, robs] = await Promise.all([
                 api.get(`/api/anomaly/client/${cleanStringClientId}`),
                 api.get(`/api/alerts/logs/${cleanStringClientId}`),
@@ -1012,23 +862,16 @@ const ClientDashboard = () => {
                 api.get('/api/robots/'),
             ]);
 
-            let parsedAnomalies = [];
-            if (anom.data && anom.data.anomalies) {
-                parsedAnomalies = anom.data.anomalies;
-            } else {
-                parsedAnomalies = Array.isArray(anom.data) ? anom.data : [];
-            }
+            let parsedAnomalies = anom.data?.anomalies ? anom.data.anomalies : Array.isArray(anom.data) ? anom.data : [];
             const sortedAnomalies = [...parsedAnomalies].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
             setAnomalies(sortedAnomalies);
 
             const sortedLogs = (logs.data || []).sort((a, b) => new Date(b.sent_at || b.timestamp) - new Date(a.sent_at || a.timestamp));
             setAlertLogs(sortedLogs);
             setOfficers(offs.data || []);
-            setRobots((robs.data || []).filter(r => 
-                r.client_id && String(r.client_id).trim() === cleanStringClientId
-            ));
+            setRobots((robs.data || []).filter(r => r.client_id && String(r.client_id).trim() === cleanStringClientId));
         } catch (e) { 
-            console.error('Handshake verification down to local core port failed:', e); 
+            console.error('Core sync error:', e); 
         }
     };
 
@@ -1038,46 +881,42 @@ const ClientDashboard = () => {
     };
 
     const handleLogoutClick = async () => {
-        if (window.confirm('Securely terminate current safety portal session?')) {
+        if (window.confirm('Terminate session?')) {
             if (logout) await logout();
         }
     };
 
     const sendManualAlert = async () => {
         const payloadTypes = [...manualForm.types];
-        
         if (payloadTypes.includes('CUSTOM_TYPE_SELECTED')) {
             const cleanCustomText = manualForm.custom_type.trim();
-            if (!cleanCustomText) {
-                return triggerToast('Please type a descriptive custom text parameter signature value.', 'error');
-            }
-            const filteredPresetTypes = payloadTypes.filter(t => t !== 'CUSTOM_TYPE_SELECTED');
-            payloadTypes.splice(0, payloadTypes.length, ...filteredPresetTypes, cleanCustomText);
+            if (!cleanCustomText) return triggerToast('Please type a custom subject.', 'error');
+            payloadTypes.splice(payloadTypes.indexOf('CUSTOM_TYPE_SELECTED'), 1, cleanCustomText);
         }
 
         if (manualForm.officer_ids.length === 0 || payloadTypes.length === 0 || !manualForm.description) {
-            return triggerToast('All notification checkbox dependencies are required before dispatch.', 'error');
+            return triggerToast('All fields required.', 'error');
         }
         setSending(true);
         try {
             const selectedOfficersList = officers.filter(o => manualForm.officer_ids.includes(o.id));
-            const targetEmails = selectedOfficersList.map(o => o.email);
-            
             await api.post('/api/alerts/trigger', { 
                 client_id: clientId, 
                 robot_id: "MANUAL_BROADCAST",
                 types: payloadTypes, 
                 description: manualForm.description,
                 target_officer_ids: manualForm.officer_ids,
-                target_emails: targetEmails
+                target_emails: selectedOfficersList.map(o => o.email)
             });
-            triggerToast('Announcement distributed successfully.', 'success');
+            triggerToast('Announcement distributed.', 'success');
             setShowManual(false);
             setManualForm({ officer_ids: [], types: [], custom_type: '', description: '' });
             fetchAll();
         } catch (e) {
-            triggerToast('Failed to dispatch announcement.', 'error');
-        } finally { setSending(false); }
+            triggerToast('Failed to dispatch alert.', 'error');
+        } finally { 
+            setSending(false); 
+        }
     };
 
     const reAlertAnomaly = async (a) => {
@@ -1087,26 +926,44 @@ const ClientDashboard = () => {
                 client_id: clientId, robot_id: a.robot_id, anomaly_id: a.id,
                 type: a.type, description: a.description, image_url: a.image_url,
             });
-            triggerToast(`Successfully re-routed logs down to ${data.officers_notified} officers.`, 'success');
+            triggerToast(`Dispatched to ${data.officers_notified} officers.`, 'success');
             fetchAll();
         } catch (err) {
-            triggerToast('Alert routing cascade loop failed.', 'error');
-        } finally { setSending(false); }
+            triggerToast('Alert routing failed.', 'error');
+        } finally { 
+            setSending(false); 
+        }
     };
 
     if (!clientId) {
         return (
             <div className="p-10 text-center text-gray-400">
                 <Shield size={48} className="mx-auto mb-4 opacity-20" />
-                <p className="font-bold text-slate-500">No client profile configuration assigned.</p>
+                <p className="font-bold text-slate-500">No client configuration assigned.</p>
             </div>
         );
     }
 
-    const runningRobotsCount = robots.filter(r => r.is_online).length;
+    const formatDateToYMD = (d) => {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return `${y}-${m}-${day}`;
+    };
+
+    const activeDateTargetStr = dateFilter || formatDateToYMD(anchorDate);
+    const isTodayActive = activeDateTargetStr === formatDateToYMD(new Date());
+
+    const targetDateIncidentsCount = anomalies.filter(a => {
+        if (!a.timestamp) return false;
+        const d = new Date(a.timestamp);
+        return !isNaN(d.getTime()) && formatDateToYMD(d) === activeDateTargetStr;
+    }).length;
+
     const stats = {
         total: anomalies.length,
         sent: alertLogs.filter(l => l.status === 'sent').length,
+        selectedDateIncidents: targetDateIncidentsCount
     };
 
     const robotIds = ['All', ...new Set(anomalies.map(a => a.robot_id).filter(Boolean))];
@@ -1119,13 +976,7 @@ const ClientDashboard = () => {
             if (!a.timestamp) return false;
             const d = new Date(a.timestamp);
             if (isNaN(d.getTime())) return false; 
-
-            const year = d.getFullYear();
-            const month = String(d.getMonth() + 1).padStart(2, '0');
-            const day = String(d.getDate()).padStart(2, '0');
-            const localAnomalyDateStr = `${year}-${month}-${day}`;
-
-            if (localAnomalyDateStr !== dateFilter) return false;
+            if (formatDateToYMD(d) !== dateFilter) return false;
         }
         return true;
     });
@@ -1136,7 +987,7 @@ const ClientDashboard = () => {
     }, {});
 
     const PRESET_ALERT_SUBJECTS = [
-        { value: "CUSTOM_TYPE_SELECTED", label: "Custom Subject Type (Enter Value below)" },
+        { value: "CUSTOM_TYPE_SELECTED", label: "Custom Subject Type" },
         { value: "Fire", label: "Fire Explosion Incident" },
         { value: "Person Detected", label: "Unauthorized Person Detected" },
         { value: "Smoke", label: "Thick Smoke Leakage" },
@@ -1145,31 +996,27 @@ const ClientDashboard = () => {
         { value: "Banksman Required", label: "Banksman Marshalling Required" }
     ];
 
+    const syncDateFilterFromAnalytics = (newAnchorDate) => {
+        setDateFilter(formatDateToYMD(newAnchorDate));
+    };
+
     return (
         <div className="flex h-screen w-full bg-slate-50 overflow-hidden text-slate-800 font-sans relative">
-            
-            {/* ── NATIVE APP TOAST NOTIFICATION CONTAINER POPUP OVERLAY ── */}
             {toast.show && (
-                <div className={`fixed top-5 right-5 z-[100] flex items-center gap-3 px-4 py-3 rounded-xl border shadow-2xl font-semibold text-xs transition-all duration-300 transform scale-100 translate-y-0 animate-in fade-in slide-in-from-top-4 ${
-                    toast.type === 'error' 
-                        ? 'bg-slate-900 border-red-500/30 text-red-400 ring-1 ring-red-500/10' 
-                        : 'bg-slate-900 border-emerald-500/30 text-emerald-400 ring-1 ring-emerald-500/10'
+                <div className={`fixed top-5 right-5 z-[100] flex items-center gap-3 px-4 py-3 rounded-xl border shadow-2xl font-semibold text-xs transition-all ${
+                    toast.type === 'error' ? 'bg-slate-900 border-red-500/30 text-red-400' : 'bg-slate-900 border-emerald-500/30 text-emerald-400'
                 }`}>
-                    <div className={`p-1 rounded-full ${toast.type === 'error' ? 'bg-red-500/10' : 'bg-emerald-500/10'}`}>
-                        {toast.type === 'error' ? <AlertTriangle size={14} /> : <CheckCircle size={14} />}
-                    </div>
-                    <p className="tracking-wide">{toast.message}</p>
-                    <button onClick={() => setToast({ show: false, message: '', type: 'success' })} className="ml-2 text-slate-400 hover:text-white transition-colors">
-                        <X size={13} />
-                    </button>
+                    {toast.type === 'error' ? <AlertTriangle size={14} /> : <CheckCircle size={14} />}
+                    <p>{toast.message}</p>
+                    <button onClick={() => setToast({ show: false, message: '', type: 'success' })} className="ml-2 text-slate-400 hover:text-white"><X size={13} /></button>
                 </div>
             )}
 
-            <aside className={`bg-slate-900 text-slate-300 h-full flex flex-col z-30 transition-all duration-300 border-r border-slate-800 ${sidebarOpen ? 'w-64' : 'w-0 md:w-20'} overflow-hidden`}>
+            <aside className={`bg-slate-900 text-slate-300 h-full flex flex-col z-30 transition-all border-r border-slate-800 ${sidebarOpen ? 'w-64' : 'w-0 md:w-20'} overflow-hidden`}>
                 <div className="p-5 flex items-center justify-between border-b border-slate-800/60 bg-slate-950/20">
                     <div className="flex items-center gap-2.5 truncate">
                         <div className="w-7 h-7 bg-white rounded-lg flex items-center justify-center text-slate-900 shadow-sm flex-shrink-0"><ShieldAlert size={15} /></div>
-                        {sidebarOpen && <span className="font-bold text-sm uppercase tracking-wider text-white">L&T Safety Capitan</span>}
+                        {sidebarOpen && <span className="font-bold text-sm uppercase tracking-wider text-white">MiBOT Safety System</span>}
                     </div>
                 </div>
 
@@ -1180,18 +1027,18 @@ const ClientDashboard = () => {
                         { id: 'history', label: 'Alert History', icon: <Clock size={16} /> }
                     ].map(tab => (
                         <button key={tab.id} onClick={() => setActiveView(tab.id)}
-                            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all group relative ${activeView === tab.id ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'}`}>
+                            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all ${activeView === tab.id ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-400 hover:bg-slate-800/50'}`}>
                             <div>{tab.icon}</div>
                             {sidebarOpen && <span className="truncate">{tab.label}</span>}
                         </button>
                     ))}
                     <div className="h-px bg-slate-800/60 my-4 mx-2" />
-                    <button onClick={() => setShowOfficers(true)} className="w-full flex items-center gap-3 px-3 py-2.5 text-xs font-semibold text-slate-400 hover:bg-slate-800/50 hover:text-slate-200 rounded-xl transition-all"><Shield size={16} />{sidebarOpen && <span className="truncate">Officers ({officers.length})</span>}</button>
-                    <button onClick={() => setShowEmail(true)} className="w-full flex items-center gap-3 px-3 py-2.5 text-xs font-semibold text-slate-400 hover:bg-slate-800/50 hover:text-slate-200 rounded-xl transition-all"><Settings size={16} />{sidebarOpen && <span className="truncate">Portal Settings</span>}</button>
+                    <button onClick={() => setShowOfficers(true)} className="w-full flex items-center gap-3 px-3 py-2.5 text-xs font-semibold text-slate-400 hover:bg-slate-800/50 rounded-xl"><Shield size={16} />{sidebarOpen && <span className="truncate">Officers ({officers.length})</span>}</button>
+                    <button onClick={() => setShowEmail(true)} className="w-full flex items-center gap-3 px-3 py-2.5 text-xs font-semibold text-slate-400 hover:bg-slate-800/50 rounded-xl"><Settings size={16} />{sidebarOpen && <span className="truncate">Portal Settings</span>}</button>
                 </nav>
 
                 <div className="p-3 border-t border-slate-800/60 bg-slate-950/10">
-                    <button onClick={() => { setManualForm({ officer_ids: [], types: [], custom_type: '', description: '' }); setShowManual(true); }} className="w-full bg-blue-800 hover:bg-red-700 text-white rounded-xl py-2.5 px-3 flex items-center justify-center gap-2 text-xs font-bold transition-all shadow-md"><Send size={13} />{sidebarOpen && <span className="uppercase tracking-wider">ANNOUNCEMENT</span>}</button>
+                    <button onClick={() => { setManualForm({ officer_ids: [], types: [], custom_type: '', description: '' }); setShowManual(true); }} className="w-full bg-blue-800 hover:bg-red-700 text-white rounded-xl py-2.5 px-3 flex items-center justify-center gap-2 text-xs font-bold shadow-md"><Send size={13} />{sidebarOpen && <span>ANNOUNCEMENT</span>}</button>
                 </div>
             </aside>
 
@@ -1208,7 +1055,7 @@ const ClientDashboard = () => {
                     <div className="flex items-center gap-3">
                         <button onClick={() => setShowOfficers(true)} className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold shadow-sm"><Plus size={13} /> Add Officer</button>
                         <div className="relative" ref={profileRef}>
-                            <button onClick={() => setProfileOpen(!profileOpen)} className="flex items-center gap-2 p-1 hover:bg-slate-50 border border-slate-100 rounded-xl transition-all">
+                            <button onClick={() => setProfileOpen(!profileOpen)} className="flex items-center gap-2 p-1 hover:bg-slate-50 border border-slate-100 rounded-xl">
                                 <div className="w-7 h-7 bg-slate-900 text-white font-bold text-xs rounded-lg flex items-center justify-center">{userInitials}</div>
                                 <div className="text-left hidden md:block max-w-[120px]">
                                     <p className="text-xs font-bold text-slate-800 truncate">{computedProfileUsername}</p>
@@ -1218,10 +1065,6 @@ const ClientDashboard = () => {
                             </button>
                             {profileOpen && (
                                 <div className="absolute right-0 mt-2 w-52 bg-white border border-slate-200 rounded-xl shadow-xl py-1.5 z-50">
-                                    <div className="px-3.5 py-2 border-b border-slate-100 bg-slate-50/50">
-                                        <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Active Email</p>
-                                        <p className="text-xs font-semibold text-slate-700 truncate mt-0.5">{user?.email || 'N/A'}</p>
-                                    </div>
                                     <button onClick={() => { setProfileOpen(false); handleLogoutClick(); }} className="w-full text-left px-3.5 py-2 text-xs font-bold text-red-600 hover:bg-red-50 flex items-center gap-2"><LogOut size={12} /> Logout</button>
                                 </div>
                             )}
@@ -1229,42 +1072,49 @@ const ClientDashboard = () => {
                     </div>
                 </header>
 
-                {officers.length === 0 && (
-                    <div className="bg-amber-50 border-b border-amber-200 px-6 py-2 flex items-center justify-between gap-3 flex-shrink-0">
-                        <p className="text-[11px] font-semibold text-amber-800 flex items-center gap-2"><AlertTriangle size={14} /> Warning: Add a safety officer to ensure real-time email routing cascades execution logs cleanly.</p>
-                        <button onClick={() => setShowOfficers(true)} className="text-[11px] font-bold text-amber-900 underline hover:no-underline">Configure Officer Now</button>
-                    </div>
-                )}
-
                 <main className="flex-1 overflow-y-auto p-5 sm:p-6 lg:p-8 space-y-6 max-w-[1600px] w-full mx-auto">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3.5">
+                    {/* ── 4 KPI CARDS INCLUDING DYNAMIC DATE / TODAY CARD ── */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-3.5">
                         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm ring-2 ring-emerald-500/20">
                             <p className="text-[10px] font-bold text-emerald-600 uppercase tracking-widest flex items-center gap-1"><Cpu size={11} className="animate-spin" /> Live Fleet Status</p>
-                            <p className="text-2xl font-bold mt-1.5 text-emerald-700">{runningRobotsCount} <span className="text-xs font-medium text-slate-400">/ {robots.length}</span></p>
+                            <p className="text-2xl font-bold mt-1.5 text-emerald-700">{robots.filter(r => r.is_online).length} <span className="text-xs font-medium text-slate-400">/ {robots.length}</span></p>
                         </div>
-                        {[
-                            { label: 'Total Incidents', val: stats.total, color: 'text-slate-900', bg: 'bg-white border-slate-200' },
-                            { label: 'Alerts Sent', val: stats.sent, color: 'text-emerald-600', bg: 'bg-emerald-50/40 border-emerald-100' },
-                        ].map(card => (
-                            <div key={card.label} className={`${card.bg} border rounded-xl p-4 shadow-sm`}>
-                                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{card.label}</p>
-                                <p className={`text-2xl font-bold mt-1.5 ${card.color}`}>{card.val}</p>
-                            </div>
-                        ))}
+                        <div className="bg-white border-slate-200 border rounded-xl p-4 shadow-sm">
+                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Total Incidents</p>
+                            <p className="text-2xl font-bold mt-1.5 text-slate-900">{stats.total}</p>
+                        </div>
+                        <div className="bg-emerald-50/40 border-emerald-100 border rounded-xl p-4 shadow-sm">
+                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Alerts Sent</p>
+                            <p className="text-2xl font-bold mt-1.5 text-emerald-600">{stats.sent}</p>
+                        </div>
+                        <div 
+                            onClick={() => { setDateFilter(activeDateTargetStr); setActiveView('anomalies'); }} 
+                            className="bg-amber-50/40 border-amber-200 border rounded-xl p-4 shadow-sm cursor-pointer hover:bg-amber-100/50 transition-all group"
+                        >
+                            <p className="text-[10px] font-bold text-amber-600 uppercase tracking-widest flex items-center justify-between">
+                                {isTodayActive ? 'Today Incidents' : `Incidents (${activeDateTargetStr})`}
+                                <ChevronRight size={12} className="text-amber-400 group-hover:translate-x-0.5 transition-transform" />
+                            </p>
+                            <p className="text-2xl font-bold mt-1.5 text-amber-700">{stats.selectedDateIncidents}</p>
+                        </div>
                     </div>
 
                     {activeView === 'dashboard' && (
                         <div className="space-y-6">
-                            <AdvancedAnalyticsPanel anomalies={anomalies} onTriggerFilterRedirect={handleClassificationRedirect} />
+                            <AdvancedAnalyticsPanel 
+                                anomalies={anomalies} 
+                                onTriggerFilterRedirect={handleClassificationRedirect} 
+                                anchorDate={anchorDate} 
+                                setAnchorDate={setAnchorDate}
+                                onSyncDateFilter={syncDateFilterFromAnalytics}
+                            />
                             <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-4">
-                                <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                                    <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2"><Bot size={14} /> Operational Fleet Metrics (Running Profiles)</h3>
-                                </div>
+                                <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2"><Bot size={14} /> Operational Fleet Metrics</h3>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                                     {robots.map(r => (
                                         <div key={r.id} onClick={() => { setRobotFilter(r.id); setActiveView('anomalies'); }} className="border rounded-xl p-3 bg-slate-50/50 hover:border-slate-400 cursor-pointer">
                                             <div className="flex justify-between"><h4 className="text-xs font-bold text-slate-800 truncate">{r.name || r.id}</h4><span className={`w-2 h-2 rounded-full mt-1 ${r.is_online ? 'bg-emerald-500' : 'bg-slate-300'}`} /></div>
-                                            <div className="flex justify-between mt-4 text-[10px]"><span className="text-slate-400">Total Anomaly Logs</span><span className="font-bold text-slate-700">{robotAnomalyCounts[r.id] || 0} hits</span></div>
+                                            <div className="flex justify-between mt-4 text-[10px]"><span className="text-slate-400">Total Logs</span><span className="font-bold text-slate-700">{robotAnomalyCounts[r.id] || 0} hits</span></div>
                                         </div>
                                     ))}
                                 </div>
@@ -1282,15 +1132,8 @@ const ClientDashboard = () => {
                                                     {log.is_read ? <MailOpen size={11} className="text-blue-600" /> : <Mail size={11} />}
                                                 </div>
                                                 <div className="min-w-0 flex-1">
-                                                    <div className="flex items-center justify-between">
-                                                        <p className="text-[11px] font-bold text-slate-700 truncate">{log.recipient}</p>
-                                                        <span className={`text-[8px] font-bold px-1 rounded ${log.is_read ? 'bg-blue-50 text-blue-600' : 'bg-amber-50 text-amber-600'}`}>
-                                                            {log.is_read ? 'Read' : 'Delivered'}
-                                                        </span>
-                                                    </div>
-                                                    <p className="text-[9px] text-slate-400 font-mono mt-0.5">
-                                                        {log.channel} · {log.sent_at ? new Date(log.sent_at).toLocaleTimeString() : 'N/A'}
-                                                    </p>
+                                                    <p className="text-[11px] font-bold text-slate-700 truncate">{log.recipient}</p>
+                                                    <p className="text-[9px] text-slate-400 font-mono">{log.channel} · {log.sent_at ? new Date(log.sent_at).toLocaleTimeString() : 'N/A'}</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -1332,12 +1175,8 @@ const ClientDashboard = () => {
                                             {logItem.is_read ? <MailOpen size={13} className="text-blue-600" /> : <Mail size={13} />}
                                         </span>
                                         <div className="flex-1 min-w-0">
-                                            <div className="flex items-center gap-3">
-                                                <p className="text-xs font-bold text-slate-800 truncate">{logItem.recipient}</p>
-                                            </div>
-                                            <p className="text-[10px] text-slate-400 mt-0.5">
-                                                {logItem.channel} · {logItem.sent_at ? new Date(logItem.sent_at).toLocaleString() : 'N/A'}
-                                            </p>
+                                            <p className="text-xs font-bold text-slate-800 truncate">{logItem.recipient}</p>
+                                            <p className="text-[10px] text-slate-400">{logItem.channel} · {logItem.sent_at ? new Date(logItem.sent_at).toLocaleString() : 'N/A'}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -1350,86 +1189,47 @@ const ClientDashboard = () => {
             {showManual && (
                 <div className="fixed inset-0 bg-slate-950/40 backdrop-blur-md z-50 flex items-center justify-center p-4">
                     <div className="bg-white rounded-2xl p-6 w-full max-w-lg shadow-xl border border-slate-100 max-h-[90vh] flex flex-col">
-                        <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-2 flex-shrink-0">
-                            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-tight">ANNOUNCEMENT</h2>
+                        <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-2">
+                            <h2 className="text-sm font-bold text-slate-900 uppercase">ANNOUNCEMENT</h2>
                             <button onClick={() => setShowManual(false)} className="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400"><X size={16} /></button>
                         </div>
-                        
                         <div className="space-y-4 overflow-y-auto flex-1 pr-1">
                             <div>
-                                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">SELECT OFFICER</label>
+                                <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">SELECT OFFICER</label>
                                 <div className="max-h-32 overflow-y-auto border border-slate-200 bg-slate-50 rounded-xl p-2.5 space-y-2">
-                                    {officers.map(o => {
-                                        const isChecked = manualForm.officer_ids.includes(o.id);
-                                        return (
-                                            <label key={o.id} className="flex items-center gap-2.5 cursor-pointer p-1 hover:bg-white/60 rounded-lg transition-colors select-none">
-                                                <input 
-                                                    type="checkbox" 
-                                                    checked={isChecked} 
-                                                    onChange={() => {
-                                                        const updatedIds = isChecked
-                                                            ? manualForm.officer_ids.filter(id => id !== o.id)
-                                                            : [...manualForm.officer_ids, o.id];
-                                                        setManualForm({ ...manualForm, officer_ids: updatedIds });
-                                                    }}
-                                                    className="w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500 accent-blue-600" 
-                                                />
-                                                <span className="text-xs font-semibold text-slate-700">{o.name} ({o.role})</span>
-                                            </label>
-                                        );
-                                    })}
-                                    {officers.length === 0 && (
-                                        <span className="text-[11px] text-slate-400 font-medium italic block p-1">No active security officers configured</span>
-                                    )}
+                                    {officers.map(o => (
+                                        <label key={o.id} className="flex items-center gap-2.5 cursor-pointer">
+                                            <input type="checkbox" checked={manualForm.officer_ids.includes(o.id)} onChange={() => {
+                                                const updated = manualForm.officer_ids.includes(o.id)
+                                                    ? manualForm.officer_ids.filter(id => id !== o.id)
+                                                    : [...manualForm.officer_ids, o.id];
+                                                setManualForm({ ...manualForm, officer_ids: updated });
+                                            }} className="w-4 h-4 text-blue-600 rounded" />
+                                            <span className="text-xs font-semibold text-slate-700">{o.name} ({o.role})</span>
+                                        </label>
+                                    ))}
                                 </div>
                             </div>
-                            
                             <div>
-                                <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">SUBJECT TYPE SELECTOR</label>
-                                <div className="max-h-44 overflow-y-auto border border-slate-200 bg-slate-50 rounded-xl p-2.5 space-y-2">
-                                    {PRESET_ALERT_SUBJECTS.map(subject => {
-                                        const isTypeChecked = manualForm.types.includes(subject.value);
-                                        return (
-                                            <label key={subject.value} className="flex items-center gap-2.5 cursor-pointer p-1 hover:bg-white/60 rounded-lg transition-colors select-none">
-                                                <input 
-                                                    type="checkbox" 
-                                                    checked={isTypeChecked} 
-                                                    onChange={() => {
-                                                        const updatedTypes = isTypeChecked
-                                                            ? manualForm.types.filter(t => t !== subject.value)
-                                                            : [...manualForm.types, subject.value];
-                                                        setManualForm({ ...manualForm, types: updatedTypes });
-                                                    }}
-                                                    className="w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500 accent-blue-600" 
-                                                />
-                                                <span className="text-xs font-semibold text-slate-700">{subject.label}</span>
-                                            </label>
-                                        );
-                                    })}
+                                <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">SUBJECT TYPE</label>
+                                <div className="max-h-36 overflow-y-auto border border-slate-200 bg-slate-50 rounded-xl p-2.5 space-y-2">
+                                    {PRESET_ALERT_SUBJECTS.map(s => (
+                                        <label key={s.value} className="flex items-center gap-2.5 cursor-pointer">
+                                            <input type="checkbox" checked={manualForm.types.includes(s.value)} onChange={() => {
+                                                const updated = manualForm.types.includes(s.value)
+                                                    ? manualForm.types.filter(t => t !== s.value)
+                                                    : [...manualForm.types, s.value];
+                                                setManualForm({ ...manualForm, types: updated });
+                                            }} className="w-4 h-4 text-blue-600 rounded" />
+                                            <span className="text-xs font-semibold text-slate-700">{s.label}</span>
+                                        </label>
+                                    ))}
                                 </div>
-
-                                {manualForm.types.includes('CUSTOM_TYPE_SELECTED') && (
-                                    <div className="mt-2.5 animate-in slide-in-from-top-2 duration-200">
-                                        <label className="text-[9px] font-bold text-indigo-500 uppercase tracking-wide block mb-1">Enter Custom Subject Title</label>
-                                        <input 
-                                            type="text" 
-                                            value={manualForm.custom_type}
-                                            onChange={e => setManualForm({ ...manualForm, custom_type: e.target.value })}
-                                            placeholder="e.g. Chemical Leakage, Power Blackout"
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:bg-white focus:border-slate-900 transition-all font-medium"
-                                        />
-                                    </div>
-                                )}
                             </div>
-                            
-                            <div>
-                                <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">DESCRIPTION</label>
-                                <textarea value={manualForm.description} onChange={e => setManualForm({ ...manualForm, description: e.target.value })} placeholder="What is the emergency?" rows={3} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none resize-none" />
-                            </div>
+                            <textarea value={manualForm.description} onChange={e => setManualForm({ ...manualForm, description: e.target.value })} placeholder="Emergency description" rows={3} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs outline-none" />
                         </div>
-                        
-                        <div className="pt-3 border-t border-slate-100 flex-shrink-0">
-                            <button onClick={sendManualAlert} disabled={sending} className="w-full py-2.5 bg-blue-800 hover:bg-red-700 text-white rounded-xl font-bold text-xs tracking-wide flex items-center justify-center gap-1.5"><Send size={13} /> {sending ? 'Dispatching…' : `DISPATCH ALERT → ${manualForm.officer_ids.length} Officer(s)`}</button>
+                        <div className="pt-3 border-t border-slate-100">
+                            <button onClick={sendManualAlert} disabled={sending} className="w-full py-2.5 bg-blue-800 hover:bg-red-700 text-white rounded-xl font-bold text-xs"><Send size={13} /> {sending ? 'Dispatching…' : 'DISPATCH ALERT'}</button>
                         </div>
                     </div>
                 </div>
@@ -1441,7 +1241,7 @@ const ClientDashboard = () => {
             {lightboxImg && (
                 <div className="fixed inset-0 bg-slate-950/90 z-50 flex items-center justify-center p-4" onClick={() => setLightboxImg(null)}>
                     <button className="absolute top-4 right-4 p-2 bg-white/10 text-white rounded-full"><X size={18} /></button>
-                    <img src={lightboxImg} alt="Expanded representation view" className="max-w-full max-h-[90vh] rounded-xl shadow-2xl object-contain" onClick={e => e.stopPropagation()} />
+                    <img src={lightboxImg} alt="Expanded preview" className="max-w-full max-h-[90vh] rounded-xl shadow-2xl object-contain" onClick={e => e.stopPropagation()} />
                 </div>
             )}
         </div>
