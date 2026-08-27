@@ -56,8 +56,21 @@ def sync_vps_profile_to_local(client_id: int):
     except requests.exceptions.RequestException as e:
         print(f"❌ SYNC_SERVICE FAILED: Cloud registry unreachable. Operating on offline local cache. Error: {e}")
 
-def start_periodic_sync(client_id: int, interval_seconds: int = 30):
-    """Loop runner executing sync matrices continually on a daemon thread."""
+def start_periodic_sync(interval_seconds: int = 30):
+    """Dynamically syncs all clients stored in the local DB without hardcoding."""
     while True:
-        sync_vps_profile_to_local(client_id)
+        db: Session = SessionLocal()
+        try:
+            configs = db.query(models_local.LocalClientEmailConfig.client_id).all()
+            officers = db.query(models_local.LocalSafetyOfficer.client_id).all()
+            
+            client_ids = set([c[0] for c in configs if c[0]] + [o[0] for o in officers if o[0]])
+            
+            for c_id in client_ids:
+                sync_vps_profile_to_local(c_id)
+        except Exception as err:
+            print(f"⚠️ SYNC_SERVICE LOOP ERROR: {err}")
+        finally:
+            db.close()
+
         time.sleep(interval_seconds)

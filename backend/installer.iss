@@ -1,46 +1,45 @@
-; Inno Setup Configuration Script for MiBOT Desktop Application
+; --- AUTO-INCREMENT BUILD NUMBER ---
+#define BuildNumFile "build.number"
+#define BuildNum ReadIni(BuildNumFile, "Version", "Build", "0")
+#define BuildNum Str(Int(BuildNum) + 1)
+#expr WriteIni(BuildNumFile, "Version", "Build", BuildNum)
+
+; --- DEFINE BASE VERSION ---
+#define MajorVersion "2.0.0"
+#define FullAppVersion MajorVersion + "." + BuildNum
 
 [Setup]
-AppName=MiBot Desktop
-AppVersion=1.0.0
+AppId={{C38A18B2-9F10-4A99-8D15-1B82A9C104E9}
+AppName=MiBOT Client Desktop
+AppVersion={#FullAppVersion}
 AppPublisher=MiBOT Ventures
-; Mapped to Program Files to perfectly match your administration access level requirements
-DefaultDirName={autopf}\MiBot_Desktop
-DefaultGroupName=MiBot Desktop
+DefaultDirName={autopf}\MiBOT Desktop
+DefaultGroupName=MiBOT Desktop
 DisableProgramGroupPage=yes
-OutputDir=.\installer_output
-OutputBaseFilename=MiBot_Desktop_Setup
-Compression=lzma
+OutputDir=D:\mibot-client-desktop-test\Output
+OutputBaseFilename=MiBOT_Desktop_Setup_v{#FullAppVersion}
+Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
-; Natively demands elevation execution parameters to ensure firewall rules inject successfully
-PrivilegesRequired=admin
 
-[Languages]
-Name: "english"; MessagesFile: "compiler:Default.isl"
+; 🔒 PERMISSIONS & PROCESS MANAGEMENT
+PrivilegesRequired=admin
+PrivilegesRequiredOverridesAllowed=commandline
+CloseApplications=yes
+CloseApplicationsFilter=*.exe
+RestartApplications=no
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-; 1. Grab the main executable file explicitly first
-Source: "D:\mibot-client-desktop\backend\dist\MiBot_Desktop\MiBot_Desktop.exe"; DestDir: "{app}"; Flags: ignoreversion
-
-; 2. FIX: Added 'Excludes' parameter to prevent duplicate compilation locks on the main exe
-Source: "D:\mibot-client-desktop\backend\dist\MiBot_Desktop\*"; DestDir: "{app}"; Excludes: "MiBot_Desktop.exe"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\mibot-client-desktop-test\backend\dist\MiBotServer\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs restartreplace
 
 [Icons]
-; Create standard Windows shortcuts
-Name: "{group}\MiBot Desktop"; Filename: "{app}\MiBot_Desktop.exe"
-Name: "{autodesktop}\MiBot Desktop"; Filename: "{app}\MiBot_Desktop.exe"; Tasks: desktopicon
+Name: "{group}\MiBOT Desktop"; Filename: "{app}\MiBotServer.exe"
+Name: "{group}\View Application Logs"; Filename: "explorer.exe"; Parameters: "C:\ProgramData\MiBot_Desktop\logs"
+Name: "{group}\{cm:UninstallProgram,MiBOT Desktop}"; Filename: "{uninstallexe}"
+Name: "{autodesktop}\MiBOT Desktop"; Filename: "{app}\MiBotServer.exe"; Tasks: desktopicon
 
 [Run]
-; Add a Windows Firewall allow-rule for the exe BEFORE first launch, so the loopback server isn't silently blocked.
-Filename: "netsh"; Parameters: "advfirewall firewall add rule name=""MiBot Desktop"" dir=in action=allow program=""{app}\MiBot_Desktop.exe"" enable=yes"; Flags: runhidden
-
-; Auto-launch choice for the user after setup ends. Natively windowed, no 'runhidden' flag required!
-Filename: "{app}\MiBot_Desktop.exe"; Description: "{cm:LaunchProgram,MiBot Desktop}"; Flags: nowait postinstall skipifsilent
-
-[UninstallRun]
-; Clean up the firewall rule on uninstall so we don't leave orphaned rules behind.
-Filename: "netsh"; Parameters: "advfirewall firewall delete rule name=""MiBot Desktop"""; Flags: runhidden
+Filename: "{app}\MiBotServer.exe"; Description: "{cm:LaunchProgram,MiBOT Desktop}"; Flags: nowait postinstall skipifsilent

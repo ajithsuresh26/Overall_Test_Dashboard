@@ -65,7 +65,7 @@ export default function Login() {
         setSuccessMessage('');
         
         const cleanEmail = String(email).trim().toLowerCase();
-        if (!cleanEmail) { setError('Please provide your account email address[cite: 7]'); return; }
+        if (!cleanEmail) { setError('Please provide your account email address'); return; }
 
         // ── STRICTION UI GUARD: IMMEDIATELY DROP ADMINISTRATIVE RESET REQUESTS ──
         if (cleanEmail.includes('oiltech.in') || cleanEmail.includes('technomech.com')) {
@@ -76,11 +76,11 @@ export default function Login() {
         setIsLoading(true);
         try {
             await api.post('/auth/forgot-password', { email: cleanEmail });
-            setSuccessMessage('A 6-digit security OTP code was routed to your email address.[cite: 7]');
-            setViewMode('otp'); //[cite: 7]
+            setSuccessMessage('A 6-digit security OTP code was routed to your email address.');
+            setViewMode('otp'); 
         } catch (err) {
             // Front-end restriction intercept gate processing
-            const backendErrorMsg = err.response?.data?.detail || 'Failed to dispatch verification email.[cite: 7]';
+            const backendErrorMsg = err.response?.data?.detail || 'Failed to dispatch verification email.';
             setError(backendErrorMsg);
         } finally {
             setIsLoading(false);
@@ -92,15 +92,15 @@ export default function Login() {
         e.preventDefault();
         setError('');
         setSuccessMessage('');
-        if (!otpCode) { setError('Please provide the 6-digit confirmation key.[cite: 7]'); return; }
+        if (!otpCode) { setError('Please provide the 6-digit confirmation key.'); return; }
 
         setIsLoading(true);
         try {
             await api.post('/auth/verify-otp', { email, otp: otpCode });
-            setSuccessMessage('OTP Identity confirmation verified successfully.[cite: 7]');
-            setViewMode('reset'); //[cite: 7]
+            setSuccessMessage('OTP Identity confirmation verified successfully.');
+            setViewMode('reset'); 
         } catch (err) {
-            setError(err.response?.data?.detail || 'Invalid or expired OTP signature key.[cite: 7]');
+            setError(err.response?.data?.detail || 'Invalid or expired OTP signature key.');
         } finally {
             setIsLoading(false);
         }
@@ -108,11 +108,11 @@ export default function Login() {
 
     // Step 3: Password Complexity Rule Checks
     const checkRules = {
-        length: newPassword.length >= 8, //[cite: 7]
-        upper: /[A-Z]/.test(newPassword), //[cite: 7]
-        lower: /[a-z]/.test(newPassword), //[cite: 7]
-        number: /\d/.test(newPassword), //[cite: 7]
-        special: /[@$!%*?&]/.test(newPassword) //[cite: 7]
+        length: newPassword.length >= 8, 
+        upper: /[A-Z]/.test(newPassword), 
+        lower: /[a-z]/.test(newPassword), 
+        number: /\d/.test(newPassword), 
+        special: /[@$!%*?&]/.test(newPassword) 
     };
 
     // Step 4: Complete Reset Password operation
@@ -121,12 +121,12 @@ export default function Login() {
         setError('');
         setSuccessMessage('');
 
-        if (!newPassword || !confirmNewPassword) { setError('All authorization entries required.[cite: 7]'); return; }
-        if (newPassword !== confirmNewPassword) { setError('Password verification fields do not match.[cite: 7]'); return; }
+        if (!newPassword || !confirmNewPassword) { setError('All authorization entries required.'); return; }
+        if (newPassword !== confirmNewPassword) { setError('Password verification fields do not match.'); return; }
 
         // Strict system validation matching the complexity profile
         if (!Object.values(checkRules).every(Boolean)) {
-            setError('Password does not satisfy all mandatory cryptographic rules.[cite: 7]');
+            setError('Password does not satisfy all mandatory cryptographic rules.');
             return;
         }
 
@@ -137,16 +137,16 @@ export default function Login() {
                 otp: otpCode,
                 new_password: newPassword
             });
-            alert('Your password has been successfully updated! Returning to the login screen.[cite: 7]');
+            alert('Your password has been successfully updated! Returning to the login screen.');
 
             // Clean state parameters and redirect to baseline view
-            setViewMode('login'); //[cite: 7]
-            setPassword(''); //[cite: 7]
-            setNewPassword(''); //[cite: 7]
-            setConfirmNewPassword(''); //[cite: 7]
-            setOtpCode(''); //[cite: 7]
+            setViewMode('login'); 
+            setPassword(''); 
+            setNewPassword(''); 
+            setConfirmNewPassword(''); 
+            setOtpCode(''); 
         } catch (err) {
-            setError(err.response?.data?.detail || 'Credentials synchronization rejected.[cite: 7]');
+            setError(err.response?.data?.detail || 'Credentials synchronization rejected.');
         } finally {
             setIsLoading(false);
         }
@@ -165,9 +165,9 @@ export default function Login() {
             <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-b from-[#1a73e8] via-[#00c6ff] to-[#0072ff] p-12 flex-col justify-between relative">
                 <div className="z-10">
                     <div className="w-32 h-12 flex items-center justify-center border-2 border-dashed border-white/20 rounded-lg text-white font-bold tracking-widest text-sm">
-                        L&T
+                        MiBOT
                     </div>
-                    <div className="mt-8">
+                    <div className="mt-5">
                         <h1 className="text-white text-3xl font-medium leading-snug max-w-md">
                             "Real-Time Site Command: Integrated Surveillance and Predictive Safety Management System."
                         </h1>
@@ -416,6 +416,23 @@ export default function Login() {
                         )}
 
                     </div>
+
+                    {/* ── FOOTER BRANDING SUB-PANEL ────────────────────────────────── */}
+                    <div className="mt-8 pt-4 border-t border-slate-100 text-center text-xs text-slate-400">
+                        <p className="font-medium">
+                            Powered by <span className="text-slate-600 font-bold">MiBOT Ventures India Pvt Ltd</span>
+                        </p>
+                        <p className="mt-1">
+                            Need assistance? Contact{' '}
+                            <a 
+                                href="mailto:info@mi-bot.com" 
+                                className="text-[#00acc1] font-semibold hover:underline"
+                            >
+                                info@mi-bot.com
+                            </a>
+                        </p>
+                    </div>
+                    
                 </div>
             </div>
         </div>

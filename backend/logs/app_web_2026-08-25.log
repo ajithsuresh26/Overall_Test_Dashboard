@@ -1,0 +1,448 @@
+2026-08-25 13:32:16,904 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 13:32:16,904 - [INFO] - MiBOT-Web-Server - 🚀 MiBOT Web Application Server Initializing
+2026-08-25 13:32:16,904 - [INFO] - MiBOT-Web-Server - 📂 Current Log Path: D:\mibot-client-desktop-test\backend\logs\app_web_2026-08-25.log
+2026-08-25 13:32:16,904 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 13:32:17,342 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 13:32:17,342 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 13:32:17,342 - [INFO] - MiBOT-Web-Server - 🚀 MiBOT Web Application Server Initializing
+2026-08-25 13:32:17,342 - [INFO] - MiBOT-Web-Server - 🚀 MiBOT Web Application Server Initializing
+2026-08-25 13:32:17,344 - [INFO] - MiBOT-Web-Server - 📂 Current Log Path: D:\mibot-client-desktop-test\backend\logs\app_web_2026-08-25.log
+2026-08-25 13:32:17,344 - [INFO] - MiBOT-Web-Server - 📂 Current Log Path: D:\mibot-client-desktop-test\backend\logs\app_web_2026-08-25.log
+2026-08-25 13:32:17,344 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 13:32:17,344 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 13:32:17,367 - [INFO] - MiBOT-Web-Server - ✅ Background sync service & beacon threads started.
+2026-08-25 13:32:17,367 - [INFO] - MiBOT-Web-Server - ✅ Background sync service & beacon threads started.
+2026-08-25 13:32:29,891 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:32:29,891 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:32:29,892 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:32:29,892 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:32:30,186 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:32:30,186 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:32:30,191 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:32:30,191 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:32:30,196 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:32:30,196 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:32:30,550 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:32:30,550 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:32:31,143 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:32:31,143 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:32:31,210 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:32:31,210 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:32:31,211 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:32:31,211 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:32:31,482 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:32:31,482 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:32:31,488 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:32:31,488 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:32:31,880 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:32:31,880 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:32:32,910 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:32:32,910 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:32:32,911 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:32:32,911 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:32:33,243 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:32:33,243 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:32:33,550 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:32:33,550 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:39:01,638 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:39:01,638 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:39:01,639 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:39:01,639 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:39:02,032 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:39:02,032 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:39:02,745 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:39:02,745 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:39:02,747 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:39:02,747 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:39:03,097 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:39:03,097 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:39:03,102 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:39:03,102 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:39:03,611 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:39:03,611 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:39:04,514 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:39:04,514 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:39:04,515 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:39:04,515 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:39:04,807 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:39:04,807 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:39:05,220 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:39:05,220 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:55:15,433 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 13:55:15,434 - [INFO] - MiBOT-Web-Server - 🚀 MiBOT Web Application Server Initializing
+2026-08-25 13:55:15,434 - [INFO] - MiBOT-Web-Server - 📂 Current Log Path: D:\mibot-client-desktop-test\backend\logs\app_web_2026-08-25.log
+2026-08-25 13:55:15,434 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 13:55:15,877 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 13:55:15,877 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 13:55:15,877 - [INFO] - MiBOT-Web-Server - 🚀 MiBOT Web Application Server Initializing
+2026-08-25 13:55:15,877 - [INFO] - MiBOT-Web-Server - 🚀 MiBOT Web Application Server Initializing
+2026-08-25 13:55:15,877 - [INFO] - MiBOT-Web-Server - 📂 Current Log Path: D:\mibot-client-desktop-test\backend\logs\app_web_2026-08-25.log
+2026-08-25 13:55:15,877 - [INFO] - MiBOT-Web-Server - 📂 Current Log Path: D:\mibot-client-desktop-test\backend\logs\app_web_2026-08-25.log
+2026-08-25 13:55:15,878 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 13:55:15,878 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 13:55:15,912 - [INFO] - MiBOT-Web-Server - ✅ Background sync service & beacon threads started.
+2026-08-25 13:55:15,912 - [INFO] - MiBOT-Web-Server - ✅ Background sync service & beacon threads started.
+2026-08-25 13:55:33,216 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [ajith@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-25 13:55:33,216 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [ajith@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-25 13:55:34,857 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:55:34,857 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:55:34,859 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:55:34,859 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:55:35,204 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:55:35,204 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:55:35,714 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:55:35,714 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:55:37,257 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:55:37,257 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:55:37,258 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:55:37,258 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:55:37,562 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:55:37,562 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:55:37,888 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:55:37,888 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:55:49,911 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:55:49,911 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:55:49,912 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:55:49,912 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:55:50,244 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:55:50,244 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:55:50,830 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:55:50,830 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:55:52,897 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:55:52,897 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:55:52,898 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:55:52,898 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:55:53,193 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:55:53,193 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:55:53,513 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:55:53,513 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:55:56,875 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:55:56,875 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:55:56,877 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:55:56,877 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:55:57,179 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:55:57,179 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:55:57,700 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:55:57,700 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:56:04,822 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:56:04,822 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:56:04,823 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:56:04,823 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:56:05,159 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:56:05,159 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:56:05,782 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:56:05,782 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:56:20,365 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:56:20,365 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:56:20,366 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:56:20,366 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:56:20,703 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:56:20,703 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:56:21,133 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:56:21,133 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:56:34,761 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:56:34,761 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:56:34,762 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:56:34,762 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:56:35,096 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:56:35,096 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:56:35,738 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:56:35,738 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:56:49,692 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:56:49,692 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:56:49,694 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:56:49,694 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:56:50,042 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:56:50,042 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:56:50,368 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:56:50,368 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:57:04,870 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:57:04,870 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:57:04,871 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:57:04,871 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:57:05,204 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:57:05,204 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:57:06,508 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:57:06,508 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:57:19,925 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:57:19,925 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:57:19,927 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:57:19,927 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:57:20,282 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:57:20,282 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:57:20,746 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:57:20,746 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:57:23,282 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:57:23,282 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:57:23,283 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:57:23,283 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:57:23,588 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:57:23,588 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:57:23,894 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:57:23,894 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:57:40,339 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [keralapolice@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-25 13:57:40,339 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [keralapolice@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-25 13:57:42,042 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:57:42,042 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:57:42,043 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:57:42,043 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:57:42,355 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:57:42,355 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:57:43,074 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:57:43,074 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:57:45,502 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:57:45,502 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:57:45,503 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:57:45,503 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:57:45,846 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:57:45,846 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:57:46,184 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:57:46,184 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:57:47,269 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:57:47,269 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:57:47,271 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:57:47,271 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:57:47,664 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:57:47,664 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:57:48,000 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:57:48,000 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 13:58:04,427 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [ajith@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-25 13:58:04,427 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [ajith@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-25 13:58:06,131 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:58:06,131 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:58:06,132 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:58:06,132 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:58:06,441 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:58:06,441 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:58:06,818 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:58:06,818 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:58:07,709 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:58:07,709 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:58:07,710 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:58:07,710 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:58:08,050 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:58:08,050 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:58:08,382 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:58:08,382 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:58:11,054 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:58:11,054 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 13:58:11,055 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:58:11,055 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 13:58:11,355 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:58:11,355 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 13:58:11,704 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 13:58:11,704 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 20:15:49,900 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 20:15:49,900 - [INFO] - MiBOT-Web-Server - 🚀 MiBOT Web Application Server Initializing
+2026-08-25 20:15:49,901 - [INFO] - MiBOT-Web-Server - 📂 Current Log Path: D:\mibot-client-desktop-test\backend\logs\app_web_2026-08-25.log
+2026-08-25 20:15:49,901 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 20:15:51,518 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 20:15:51,518 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 20:15:51,518 - [INFO] - MiBOT-Web-Server - 🚀 MiBOT Web Application Server Initializing
+2026-08-25 20:15:51,518 - [INFO] - MiBOT-Web-Server - 🚀 MiBOT Web Application Server Initializing
+2026-08-25 20:15:51,518 - [INFO] - MiBOT-Web-Server - 📂 Current Log Path: D:\mibot-client-desktop-test\backend\logs\app_web_2026-08-25.log
+2026-08-25 20:15:51,518 - [INFO] - MiBOT-Web-Server - 📂 Current Log Path: D:\mibot-client-desktop-test\backend\logs\app_web_2026-08-25.log
+2026-08-25 20:15:51,518 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 20:15:51,518 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 20:15:51,549 - [INFO] - MiBOT-Web-Server - ✅ Background sync service & beacon threads started.
+2026-08-25 20:15:51,549 - [INFO] - MiBOT-Web-Server - ✅ Background sync service & beacon threads started.
+2026-08-25 20:16:07,333 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [ajith@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-25 20:16:07,333 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [ajith@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-25 20:16:09,757 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 20:16:09,757 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 20:16:09,759 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 20:16:09,759 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 20:16:10,246 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 20:16:10,246 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 20:16:10,787 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 20:16:10,787 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 20:16:13,138 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 20:16:13,138 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 20:16:13,140 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 20:16:13,140 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 20:16:13,602 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 20:16:13,602 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 20:16:14,098 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 20:16:14,098 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 20:17:16,975 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [ajith@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-25 20:17:16,975 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [ajith@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-25 20:17:18,976 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 20:17:18,976 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 20:17:18,979 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 20:17:18,979 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 20:17:19,641 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 20:17:19,641 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=3 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 20:17:20,034 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 20:17:20,034 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=3 "HTTP/1.1 200 OK"
+2026-08-25 20:17:46,170 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [keralapolice@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-25 20:17:46,170 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [keralapolice@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-25 20:17:48,111 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 20:17:48,111 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 20:17:48,116 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 20:17:48,116 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 20:17:48,561 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 20:17:48,561 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 20:17:49,130 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 20:17:49,130 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 20:18:17,950 - [INFO] - MiBOT-Web-Server - 🛑 Web server shutting down.
+2026-08-25 20:18:17,950 - [INFO] - MiBOT-Web-Server - 🛑 Web server shutting down.
+2026-08-25 21:36:57,921 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 21:36:57,921 - [INFO] - MiBOT-Web-Server - 🚀 MiBOT Web Application Server Initializing
+2026-08-25 21:36:57,921 - [INFO] - MiBOT-Web-Server - 📂 Current Log Path: D:\mibot-client-desktop-test\backend\logs\app_web_2026-08-25.log
+2026-08-25 21:36:57,922 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 21:36:58,878 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 21:36:58,878 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 21:36:58,878 - [INFO] - MiBOT-Web-Server - 🚀 MiBOT Web Application Server Initializing
+2026-08-25 21:36:58,878 - [INFO] - MiBOT-Web-Server - 🚀 MiBOT Web Application Server Initializing
+2026-08-25 21:36:58,879 - [INFO] - MiBOT-Web-Server - 📂 Current Log Path: D:\mibot-client-desktop-test\backend\logs\app_web_2026-08-25.log
+2026-08-25 21:36:58,879 - [INFO] - MiBOT-Web-Server - 📂 Current Log Path: D:\mibot-client-desktop-test\backend\logs\app_web_2026-08-25.log
+2026-08-25 21:36:58,879 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 21:36:58,879 - [INFO] - MiBOT-Web-Server - ==================================================
+2026-08-25 21:36:58,960 - [INFO] - MiBOT-Web-Server - ✅ Background sync service & beacon threads started.
+2026-08-25 21:36:58,960 - [INFO] - MiBOT-Web-Server - ✅ Background sync service & beacon threads started.
+2026-08-25 21:37:34,391 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [keralapolice@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-25 21:37:34,391 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [keralapolice@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-25 21:37:36,457 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:37:36,457 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:37:36,460 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:37:36,460 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:37:37,202 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:37:37,202 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:37:37,550 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:37:37,550 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:37:38,914 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:37:38,914 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:37:38,916 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:37:38,916 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:37:39,504 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:37:39,504 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:37:39,951 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:37:39,951 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:37:51,613 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:37:51,613 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:37:51,614 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:37:51,614 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:37:52,094 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:37:52,094 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:37:52,435 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:37:52,435 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:38:06,628 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:38:06,628 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:38:06,630 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:38:06,630 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:38:07,278 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:38:07,278 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:38:07,801 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:38:07,801 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:38:21,616 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:38:21,616 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:38:21,618 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:38:21,618 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:38:22,209 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:38:22,209 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:38:22,609 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:38:22,609 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:38:36,623 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:38:36,623 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:38:36,625 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:38:36,625 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:38:37,069 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:38:37,069 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:38:37,490 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:38:37,490 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:38:51,620 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:38:51,620 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:38:51,622 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:38:51,622 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:38:52,127 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:38:52,127 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:38:52,649 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:38:52,649 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:39:06,778 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:39:06,778 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:39:06,782 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:39:06,782 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:39:07,281 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:39:07,281 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:39:07,803 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:39:07,803 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:39:21,676 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:39:21,676 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:39:21,679 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:39:21,679 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:39:22,318 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:39:22,318 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:39:22,750 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:39:22,750 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:40:00,539 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:40:00,539 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:40:00,544 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:40:00,544 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:40:01,071 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:40:01,071 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:40:01,576 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:40:01,576 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:41:00,969 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:41:00,969 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:41:00,971 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:41:00,971 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:41:01,471 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:41:01,471 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:41:01,980 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:41:01,980 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:42:00,659 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:42:00,659 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:42:00,661 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:42:00,661 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:42:01,149 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:42:01,149 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:42:01,783 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:42:01,783 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:43:00,869 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:43:00,869 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:43:00,870 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:43:00,870 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:43:01,496 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:43:01,496 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:43:01,754 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:43:01,754 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:43:06,381 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:43:06,381 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:43:06,383 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:43:06,383 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:43:06,985 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:43:06,985 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:43:07,321 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:43:07,321 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:43:21,554 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:43:21,554 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:43:21,556 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:43:21,556 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:43:22,073 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:43:22,073 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:43:22,361 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:43:22,361 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:43:36,608 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:43:36,608 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:43:36,610 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:43:36,610 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:43:37,158 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:43:37,158 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:43:37,610 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:43:37,610 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:43:51,660 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:43:51,660 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:43:51,662 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:43:51,662 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:43:52,133 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:43:52,133 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:43:52,525 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:43:52,525 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:44:06,717 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:44:06,717 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-25 21:44:06,719 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:44:06,719 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-25 21:44:07,276 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:44:07,276 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-25 21:44:07,639 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-25 21:44:07,639 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"

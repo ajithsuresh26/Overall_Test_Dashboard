@@ -1,0 +1,405 @@
+2026-08-19 16:20:57,419 - [INFO] - MiBOT-Client - ==================================================
+2026-08-19 16:20:57,420 - [INFO] - MiBOT-Client - 🚀 MiBOT Desktop Application Launch Sequence Started
+2026-08-19 16:20:57,420 - [INFO] - MiBOT-Client - 📂 Today's Log Storage File: D:\mibot-client-desktop-test\backend\app_debug_2026-08-19.log
+2026-08-19 16:20:57,420 - [INFO] - MiBOT-Client - ==================================================
+2026-08-19 16:20:58,979 - [INFO] - uvicorn.error - Started server process [5216]
+2026-08-19 16:20:58,979 - [INFO] - uvicorn.error - Started server process [5216]
+2026-08-19 16:20:58,980 - [INFO] - uvicorn.error - Waiting for application startup.
+2026-08-19 16:20:58,980 - [INFO] - uvicorn.error - Waiting for application startup.
+2026-08-19 16:20:58,981 - [INFO] - uvicorn.error - Application startup complete.
+2026-08-19 16:20:58,981 - [INFO] - uvicorn.error - Application startup complete.
+2026-08-19 16:20:58,981 - [INFO] - uvicorn.error - Uvicorn running on http://127.0.0.1:5001 (Press CTRL+C to quit)
+2026-08-19 16:20:58,981 - [INFO] - uvicorn.error - Uvicorn running on http://127.0.0.1:5001 (Press CTRL+C to quit)
+2026-08-19 16:21:02,041 - [INFO] - uvicorn.access - 127.0.0.1:65274 - "GET / HTTP/1.1" 200
+2026-08-19 16:21:02,041 - [INFO] - uvicorn.access - 127.0.0.1:65274 - "GET / HTTP/1.1" 200
+2026-08-19 16:21:02,041 - [INFO] - uvicorn.access - 127.0.0.1:65274 - "GET / HTTP/1.1" 200
+2026-08-19 16:21:02,066 - [INFO] - uvicorn.access - 127.0.0.1:65274 - "GET /assets/index-DwOHbPQG.js HTTP/1.1" 200
+2026-08-19 16:21:02,066 - [INFO] - uvicorn.access - 127.0.0.1:65274 - "GET /assets/index-DwOHbPQG.js HTTP/1.1" 200
+2026-08-19 16:21:02,066 - [INFO] - uvicorn.access - 127.0.0.1:65274 - "GET /assets/index-DwOHbPQG.js HTTP/1.1" 200
+2026-08-19 16:21:02,080 - [INFO] - uvicorn.access - 127.0.0.1:65274 - "GET /assets/index-DiNXXGmm.css HTTP/1.1" 200
+2026-08-19 16:21:02,080 - [INFO] - uvicorn.access - 127.0.0.1:65274 - "GET /assets/index-DiNXXGmm.css HTTP/1.1" 200
+2026-08-19 16:21:02,080 - [INFO] - uvicorn.access - 127.0.0.1:65274 - "GET /assets/index-DiNXXGmm.css HTTP/1.1" 200
+2026-08-19 16:21:02,175 - [INFO] - uvicorn.access - 127.0.0.1:63169 - "GET /favicon.svg HTTP/1.1" 200
+2026-08-19 16:21:02,175 - [INFO] - uvicorn.access - 127.0.0.1:63169 - "GET /favicon.svg HTTP/1.1" 200
+2026-08-19 16:21:02,175 - [INFO] - uvicorn.access - 127.0.0.1:63169 - "GET /favicon.svg HTTP/1.1" 200
+2026-08-19 16:21:02,176 - [INFO] - uvicorn.access - 127.0.0.1:60495 - "GET /assets/mibot_mobilityx-B4afuciH.png HTTP/1.1" 200
+2026-08-19 16:21:02,176 - [INFO] - uvicorn.access - 127.0.0.1:60495 - "GET /assets/mibot_mobilityx-B4afuciH.png HTTP/1.1" 200
+2026-08-19 16:21:02,176 - [INFO] - uvicorn.access - 127.0.0.1:60495 - "GET /assets/mibot_mobilityx-B4afuciH.png HTTP/1.1" 200
+2026-08-19 16:21:28,247 - [INFO] - MiBOT-Client - 🔒 PROXY AUTH: Relaying verification request for [keralapolice@mi-bot.com] to VPS -> https://qairosolution.com/api/auth/login
+2026-08-19 16:21:29,265 - [INFO] - uvicorn.access - 127.0.0.1:55905 - "POST /auth/login HTTP/1.1" 200
+2026-08-19 16:21:29,265 - [INFO] - uvicorn.access - 127.0.0.1:55905 - "POST /auth/login HTTP/1.1" 200
+2026-08-19 16:21:29,265 - [INFO] - uvicorn.access - 127.0.0.1:55905 - "POST /auth/login HTTP/1.1" 200
+2026-08-19 16:21:29,289 - [INFO] - uvicorn.access - 127.0.0.1:55905 - "OPTIONS /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:21:29,289 - [INFO] - uvicorn.access - 127.0.0.1:55905 - "OPTIONS /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:21:29,289 - [INFO] - uvicorn.access - 127.0.0.1:55905 - "OPTIONS /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:21:29,291 - [INFO] - uvicorn.access - 127.0.0.1:61936 - "OPTIONS /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:21:29,291 - [INFO] - uvicorn.access - 127.0.0.1:61936 - "OPTIONS /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:21:29,291 - [INFO] - uvicorn.access - 127.0.0.1:61936 - "OPTIONS /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:21:29,297 - [INFO] - uvicorn.access - 127.0.0.1:50978 - "OPTIONS /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:29,297 - [INFO] - uvicorn.access - 127.0.0.1:50978 - "OPTIONS /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:29,297 - [INFO] - uvicorn.access - 127.0.0.1:50978 - "OPTIONS /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:29,896 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "OPTIONS /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:29,896 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "OPTIONS /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:29,896 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "OPTIONS /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:29,925 - [INFO] - uvicorn.access - 127.0.0.1:59584 - "OPTIONS /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:29,925 - [INFO] - uvicorn.access - 127.0.0.1:59584 - "OPTIONS /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:29,925 - [INFO] - uvicorn.access - 127.0.0.1:59584 - "OPTIONS /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:29,926 - [INFO] - uvicorn.access - 127.0.0.1:55158 - "OPTIONS /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:29,926 - [INFO] - uvicorn.access - 127.0.0.1:55158 - "OPTIONS /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:29,926 - [INFO] - uvicorn.access - 127.0.0.1:55158 - "OPTIONS /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:29,947 - [INFO] - uvicorn.access - 127.0.0.1:61936 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:21:29,947 - [INFO] - uvicorn.access - 127.0.0.1:61936 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:21:29,947 - [INFO] - uvicorn.access - 127.0.0.1:61936 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:21:29,949 - [INFO] - uvicorn.access - 127.0.0.1:50978 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:29,949 - [INFO] - uvicorn.access - 127.0.0.1:50978 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:29,949 - [INFO] - uvicorn.access - 127.0.0.1:50978 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:29,956 - [INFO] - uvicorn.access - 127.0.0.1:61936 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:21:29,956 - [INFO] - uvicorn.access - 127.0.0.1:61936 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:21:29,956 - [INFO] - uvicorn.access - 127.0.0.1:61936 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:21:29,956 - [INFO] - uvicorn.access - 127.0.0.1:55158 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:29,956 - [INFO] - uvicorn.access - 127.0.0.1:55158 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:29,956 - [INFO] - uvicorn.access - 127.0.0.1:55158 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:30,351 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:21:30,383 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:21:30,881 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:21:30,886 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:30,886 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:30,886 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:31,708 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:31,708 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:31,708 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:32,123 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:21:35,439 - [INFO] - uvicorn.access - 127.0.0.1:55905 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:21:35,439 - [INFO] - uvicorn.access - 127.0.0.1:55905 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:21:35,439 - [INFO] - uvicorn.access - 127.0.0.1:55905 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:21:36,362 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:21:36,363 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:21:36,797 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:21:37,382 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:21:40,312 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:21:40,312 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:21:40,312 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:21:44,939 - [INFO] - uvicorn.access - 127.0.0.1:49669 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:21:44,939 - [INFO] - uvicorn.access - 127.0.0.1:49669 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:21:44,939 - [INFO] - uvicorn.access - 127.0.0.1:49669 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:21:44,940 - [INFO] - uvicorn.access - 127.0.0.1:53387 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:44,940 - [INFO] - uvicorn.access - 127.0.0.1:53387 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:44,940 - [INFO] - uvicorn.access - 127.0.0.1:53387 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:45,258 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:21:45,262 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:21:45,741 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:21:45,744 - [INFO] - uvicorn.access - 127.0.0.1:63208 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:45,744 - [INFO] - uvicorn.access - 127.0.0.1:63208 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:45,744 - [INFO] - uvicorn.access - 127.0.0.1:63208 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:21:46,094 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:21:48,353 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:21:48,353 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:21:48,353 - [INFO] - uvicorn.access - 127.0.0.1:51400 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:21:59,987 - [INFO] - uvicorn.access - 127.0.0.1:54369 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:59,987 - [INFO] - uvicorn.access - 127.0.0.1:54369 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:59,987 - [INFO] - uvicorn.access - 127.0.0.1:54369 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:21:59,988 - [INFO] - uvicorn.access - 127.0.0.1:54524 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:21:59,988 - [INFO] - uvicorn.access - 127.0.0.1:54524 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:21:59,988 - [INFO] - uvicorn.access - 127.0.0.1:54524 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:00,261 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:22:00,263 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:22:00,789 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:22:00,827 - [INFO] - uvicorn.access - 127.0.0.1:51396 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:00,827 - [INFO] - uvicorn.access - 127.0.0.1:51396 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:00,827 - [INFO] - uvicorn.access - 127.0.0.1:51396 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:01,513 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:22:10,422 - [INFO] - uvicorn.access - 127.0.0.1:61189 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:10,422 - [INFO] - uvicorn.access - 127.0.0.1:61189 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:10,422 - [INFO] - uvicorn.access - 127.0.0.1:61189 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:14,764 - [INFO] - uvicorn.access - 127.0.0.1:61989 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:14,764 - [INFO] - uvicorn.access - 127.0.0.1:61989 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:14,764 - [INFO] - uvicorn.access - 127.0.0.1:61989 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:14,765 - [INFO] - uvicorn.access - 127.0.0.1:65125 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:14,765 - [INFO] - uvicorn.access - 127.0.0.1:65125 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:14,765 - [INFO] - uvicorn.access - 127.0.0.1:65125 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:15,059 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:22:15,061 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:22:15,503 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:22:15,506 - [INFO] - uvicorn.access - 127.0.0.1:54722 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:15,506 - [INFO] - uvicorn.access - 127.0.0.1:54722 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:15,506 - [INFO] - uvicorn.access - 127.0.0.1:54722 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:15,939 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:22:20,314 - [INFO] - uvicorn.access - 127.0.0.1:61189 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:20,314 - [INFO] - uvicorn.access - 127.0.0.1:61189 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:20,314 - [INFO] - uvicorn.access - 127.0.0.1:61189 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:29,716 - [INFO] - uvicorn.access - 127.0.0.1:52836 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:29,716 - [INFO] - uvicorn.access - 127.0.0.1:52836 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:29,716 - [INFO] - uvicorn.access - 127.0.0.1:52836 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:29,718 - [INFO] - uvicorn.access - 127.0.0.1:62938 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:29,718 - [INFO] - uvicorn.access - 127.0.0.1:62938 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:29,718 - [INFO] - uvicorn.access - 127.0.0.1:62938 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:29,945 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:22:29,948 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:22:30,431 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:22:30,499 - [INFO] - uvicorn.access - 127.0.0.1:62385 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:30,499 - [INFO] - uvicorn.access - 127.0.0.1:62385 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:30,499 - [INFO] - uvicorn.access - 127.0.0.1:62385 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:30,908 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:22:33,360 - [INFO] - uvicorn.access - 127.0.0.1:49799 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:33,360 - [INFO] - uvicorn.access - 127.0.0.1:49799 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:33,360 - [INFO] - uvicorn.access - 127.0.0.1:49799 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:43,227 - [INFO] - uvicorn.access - 127.0.0.1:49669 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:43,227 - [INFO] - uvicorn.access - 127.0.0.1:49669 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:43,227 - [INFO] - uvicorn.access - 127.0.0.1:49669 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:43,230 - [INFO] - uvicorn.access - 127.0.0.1:49669 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:43,230 - [INFO] - uvicorn.access - 127.0.0.1:49669 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:43,230 - [INFO] - uvicorn.access - 127.0.0.1:49669 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:44,884 - [INFO] - uvicorn.access - 127.0.0.1:57404 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:44,884 - [INFO] - uvicorn.access - 127.0.0.1:57404 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:44,884 - [INFO] - uvicorn.access - 127.0.0.1:57404 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:44,886 - [INFO] - uvicorn.access - 127.0.0.1:51518 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:44,886 - [INFO] - uvicorn.access - 127.0.0.1:51518 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:44,886 - [INFO] - uvicorn.access - 127.0.0.1:51518 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:44,891 - [INFO] - uvicorn.access - 127.0.0.1:53933 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:44,891 - [INFO] - uvicorn.access - 127.0.0.1:53933 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:44,891 - [INFO] - uvicorn.access - 127.0.0.1:53933 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:44,892 - [INFO] - uvicorn.access - 127.0.0.1:51518 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:44,892 - [INFO] - uvicorn.access - 127.0.0.1:51518 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:44,892 - [INFO] - uvicorn.access - 127.0.0.1:51518 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:45,049 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:22:45,052 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:22:45,583 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:22:45,653 - [INFO] - uvicorn.access - 127.0.0.1:52463 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:45,653 - [INFO] - uvicorn.access - 127.0.0.1:52463 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:45,653 - [INFO] - uvicorn.access - 127.0.0.1:52463 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:45,956 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:22:45,966 - [INFO] - uvicorn.access - 127.0.0.1:53933 - "OPTIONS /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:45,966 - [INFO] - uvicorn.access - 127.0.0.1:53933 - "OPTIONS /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:45,966 - [INFO] - uvicorn.access - 127.0.0.1:53933 - "OPTIONS /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:45,967 - [INFO] - uvicorn.access - 127.0.0.1:51518 - "OPTIONS /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:45,967 - [INFO] - uvicorn.access - 127.0.0.1:51518 - "OPTIONS /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:45,967 - [INFO] - uvicorn.access - 127.0.0.1:51518 - "OPTIONS /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:45,974 - [INFO] - uvicorn.access - 127.0.0.1:57404 - "GET /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:45,974 - [INFO] - uvicorn.access - 127.0.0.1:57404 - "GET /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:45,974 - [INFO] - uvicorn.access - 127.0.0.1:57404 - "GET /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:45,979 - [INFO] - uvicorn.access - 127.0.0.1:57404 - "GET /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:45,979 - [INFO] - uvicorn.access - 127.0.0.1:57404 - "GET /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:45,979 - [INFO] - uvicorn.access - 127.0.0.1:57404 - "GET /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:46,296 - [INFO] - uvicorn.access - 127.0.0.1:49669 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:46,296 - [INFO] - uvicorn.access - 127.0.0.1:49669 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:46,296 - [INFO] - uvicorn.access - 127.0.0.1:49669 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:46,297 - [INFO] - uvicorn.access - 127.0.0.1:52463 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:46,297 - [INFO] - uvicorn.access - 127.0.0.1:52463 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:46,297 - [INFO] - uvicorn.access - 127.0.0.1:52463 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:22:46,916 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:22:46,918 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:22:47,407 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:22:47,711 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:22:49,402 - [INFO] - uvicorn.access - 127.0.0.1:57404 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:49,402 - [INFO] - uvicorn.access - 127.0.0.1:57404 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:49,402 - [INFO] - uvicorn.access - 127.0.0.1:57404 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:22:54,765 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:54,765 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:54,765 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:54,769 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:54,769 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:54,769 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/alerts/email-config/5 HTTP/1.1" 200
+2026-08-19 16:22:59,733 - [INFO] - uvicorn.access - 127.0.0.1:64953 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:59,733 - [INFO] - uvicorn.access - 127.0.0.1:64953 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:59,733 - [INFO] - uvicorn.access - 127.0.0.1:64953 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:22:59,734 - [INFO] - uvicorn.access - 127.0.0.1:49693 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:59,734 - [INFO] - uvicorn.access - 127.0.0.1:49693 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:59,734 - [INFO] - uvicorn.access - 127.0.0.1:49693 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:22:59,922 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:22:59,924 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:23:00,435 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:23:00,438 - [INFO] - uvicorn.access - 127.0.0.1:49843 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:00,438 - [INFO] - uvicorn.access - 127.0.0.1:49843 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:00,438 - [INFO] - uvicorn.access - 127.0.0.1:49843 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:00,862 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:23:02,126 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:02,126 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:02,126 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:05,809 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:05,809 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:05,809 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:05,815 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:05,815 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:05,815 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:07,974 - [INFO] - uvicorn.access - 127.0.0.1:58926 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:07,974 - [INFO] - uvicorn.access - 127.0.0.1:58926 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:07,974 - [INFO] - uvicorn.access - 127.0.0.1:58926 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:07,975 - [INFO] - uvicorn.access - 127.0.0.1:57642 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:07,975 - [INFO] - uvicorn.access - 127.0.0.1:57642 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:07,975 - [INFO] - uvicorn.access - 127.0.0.1:57642 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:08,169 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:23:08,172 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:23:08,654 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:23:08,658 - [INFO] - uvicorn.access - 127.0.0.1:60455 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:08,658 - [INFO] - uvicorn.access - 127.0.0.1:60455 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:08,658 - [INFO] - uvicorn.access - 127.0.0.1:60455 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:09,062 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:23:09,416 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:09,416 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:09,416 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:14,711 - [INFO] - uvicorn.access - 127.0.0.1:52611 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:14,711 - [INFO] - uvicorn.access - 127.0.0.1:52611 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:14,711 - [INFO] - uvicorn.access - 127.0.0.1:52611 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:14,712 - [INFO] - uvicorn.access - 127.0.0.1:51881 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:14,712 - [INFO] - uvicorn.access - 127.0.0.1:51881 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:14,712 - [INFO] - uvicorn.access - 127.0.0.1:51881 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:14,888 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:23:14,890 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:23:15,411 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:23:15,414 - [INFO] - uvicorn.access - 127.0.0.1:50286 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:15,414 - [INFO] - uvicorn.access - 127.0.0.1:50286 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:15,414 - [INFO] - uvicorn.access - 127.0.0.1:50286 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:15,732 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:23:16,009 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:16,009 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:16,009 - [INFO] - uvicorn.access - 127.0.0.1:62334 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:29,773 - [INFO] - uvicorn.access - 127.0.0.1:54997 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:29,773 - [INFO] - uvicorn.access - 127.0.0.1:54997 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:29,773 - [INFO] - uvicorn.access - 127.0.0.1:54997 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:29,774 - [INFO] - uvicorn.access - 127.0.0.1:53392 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:29,774 - [INFO] - uvicorn.access - 127.0.0.1:53392 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:29,774 - [INFO] - uvicorn.access - 127.0.0.1:53392 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:29,917 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:23:29,919 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:23:30,356 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:23:30,358 - [INFO] - uvicorn.access - 127.0.0.1:51414 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:30,358 - [INFO] - uvicorn.access - 127.0.0.1:51414 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:30,358 - [INFO] - uvicorn.access - 127.0.0.1:51414 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:30,675 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:23:31,384 - [INFO] - uvicorn.access - 127.0.0.1:61517 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:31,384 - [INFO] - uvicorn.access - 127.0.0.1:61517 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:31,384 - [INFO] - uvicorn.access - 127.0.0.1:61517 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:44,766 - [INFO] - uvicorn.access - 127.0.0.1:62439 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:44,766 - [INFO] - uvicorn.access - 127.0.0.1:62439 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:44,766 - [INFO] - uvicorn.access - 127.0.0.1:62439 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:44,767 - [INFO] - uvicorn.access - 127.0.0.1:49679 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:44,767 - [INFO] - uvicorn.access - 127.0.0.1:49679 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:44,767 - [INFO] - uvicorn.access - 127.0.0.1:49679 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:44,914 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:23:44,917 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:23:45,440 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:23:45,469 - [INFO] - uvicorn.access - 127.0.0.1:49680 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:45,469 - [INFO] - uvicorn.access - 127.0.0.1:49680 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:45,469 - [INFO] - uvicorn.access - 127.0.0.1:49680 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:23:45,774 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:23:46,065 - [INFO] - uvicorn.access - 127.0.0.1:61043 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:46,065 - [INFO] - uvicorn.access - 127.0.0.1:61043 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:46,065 - [INFO] - uvicorn.access - 127.0.0.1:61043 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:23:59,760 - [INFO] - uvicorn.access - 127.0.0.1:57886 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:59,760 - [INFO] - uvicorn.access - 127.0.0.1:57886 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:59,760 - [INFO] - uvicorn.access - 127.0.0.1:57886 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:23:59,761 - [INFO] - uvicorn.access - 127.0.0.1:49679 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:59,761 - [INFO] - uvicorn.access - 127.0.0.1:49679 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:59,761 - [INFO] - uvicorn.access - 127.0.0.1:49679 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:23:59,928 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:23:59,930 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:24:00,416 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:24:00,420 - [INFO] - uvicorn.access - 127.0.0.1:52181 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:24:00,420 - [INFO] - uvicorn.access - 127.0.0.1:52181 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:24:00,420 - [INFO] - uvicorn.access - 127.0.0.1:52181 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:24:00,791 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:24:01,098 - [INFO] - uvicorn.access - 127.0.0.1:53590 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:24:01,098 - [INFO] - uvicorn.access - 127.0.0.1:53590 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:24:01,098 - [INFO] - uvicorn.access - 127.0.0.1:53590 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:24:14,798 - [INFO] - uvicorn.access - 127.0.0.1:59388 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:24:14,798 - [INFO] - uvicorn.access - 127.0.0.1:59388 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:24:14,798 - [INFO] - uvicorn.access - 127.0.0.1:59388 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:24:14,799 - [INFO] - uvicorn.access - 127.0.0.1:53702 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:24:14,799 - [INFO] - uvicorn.access - 127.0.0.1:53702 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:24:14,799 - [INFO] - uvicorn.access - 127.0.0.1:53702 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:24:14,977 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:24:14,979 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:24:15,498 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:24:15,529 - [INFO] - uvicorn.access - 127.0.0.1:62789 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:24:15,529 - [INFO] - uvicorn.access - 127.0.0.1:62789 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:24:15,529 - [INFO] - uvicorn.access - 127.0.0.1:62789 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:24:15,807 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:24:16,965 - [INFO] - uvicorn.access - 127.0.0.1:61868 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:24:16,965 - [INFO] - uvicorn.access - 127.0.0.1:61868 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:24:16,965 - [INFO] - uvicorn.access - 127.0.0.1:61868 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:24:29,728 - [INFO] - uvicorn.access - 127.0.0.1:61474 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:24:29,728 - [INFO] - uvicorn.access - 127.0.0.1:61474 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:24:29,728 - [INFO] - uvicorn.access - 127.0.0.1:61474 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:24:29,730 - [INFO] - uvicorn.access - 127.0.0.1:52654 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:24:29,730 - [INFO] - uvicorn.access - 127.0.0.1:52654 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:24:29,730 - [INFO] - uvicorn.access - 127.0.0.1:52654 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:24:29,896 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:24:29,898 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:24:30,354 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:24:30,369 - [INFO] - uvicorn.access - 127.0.0.1:58520 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:24:30,369 - [INFO] - uvicorn.access - 127.0.0.1:58520 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:24:30,369 - [INFO] - uvicorn.access - 127.0.0.1:58520 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:24:30,635 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:24:31,327 - [INFO] - uvicorn.access - 127.0.0.1:50014 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:24:31,327 - [INFO] - uvicorn.access - 127.0.0.1:50014 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:24:31,327 - [INFO] - uvicorn.access - 127.0.0.1:50014 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:24:45,000 - [INFO] - uvicorn.access - 127.0.0.1:56889 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:24:45,000 - [INFO] - uvicorn.access - 127.0.0.1:56889 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:24:45,000 - [INFO] - uvicorn.access - 127.0.0.1:56889 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:24:45,002 - [INFO] - uvicorn.access - 127.0.0.1:62255 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:24:45,002 - [INFO] - uvicorn.access - 127.0.0.1:62255 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:24:45,002 - [INFO] - uvicorn.access - 127.0.0.1:62255 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:24:45,385 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:24:45,388 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:24:45,933 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:24:45,936 - [INFO] - uvicorn.access - 127.0.0.1:64889 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:24:45,936 - [INFO] - uvicorn.access - 127.0.0.1:64889 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:24:45,936 - [INFO] - uvicorn.access - 127.0.0.1:64889 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:24:46,253 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:24:46,558 - [INFO] - uvicorn.access - 127.0.0.1:49679 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:24:46,558 - [INFO] - uvicorn.access - 127.0.0.1:49679 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:24:46,558 - [INFO] - uvicorn.access - 127.0.0.1:49679 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:24:59,991 - [INFO] - uvicorn.access - 127.0.0.1:50113 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:24:59,991 - [INFO] - uvicorn.access - 127.0.0.1:50113 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:24:59,991 - [INFO] - uvicorn.access - 127.0.0.1:50113 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:24:59,995 - [INFO] - uvicorn.access - 127.0.0.1:61950 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:24:59,995 - [INFO] - uvicorn.access - 127.0.0.1:61950 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:24:59,995 - [INFO] - uvicorn.access - 127.0.0.1:61950 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:25:00,148 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:25:00,150 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:25:00,614 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:25:00,653 - [INFO] - uvicorn.access - 127.0.0.1:59029 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:25:00,653 - [INFO] - uvicorn.access - 127.0.0.1:59029 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:25:00,653 - [INFO] - uvicorn.access - 127.0.0.1:59029 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:25:00,984 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:25:02,380 - [INFO] - uvicorn.access - 127.0.0.1:50203 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:25:02,380 - [INFO] - uvicorn.access - 127.0.0.1:50203 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:25:02,380 - [INFO] - uvicorn.access - 127.0.0.1:50203 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:25:14,903 - [INFO] - uvicorn.access - 127.0.0.1:50332 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:25:14,903 - [INFO] - uvicorn.access - 127.0.0.1:50332 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:25:14,903 - [INFO] - uvicorn.access - 127.0.0.1:50332 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:25:14,903 - [INFO] - uvicorn.access - 127.0.0.1:56356 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:25:14,903 - [INFO] - uvicorn.access - 127.0.0.1:56356 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:25:14,903 - [INFO] - uvicorn.access - 127.0.0.1:56356 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:25:15,090 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:25:15,092 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:25:15,595 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:25:15,612 - [INFO] - uvicorn.access - 127.0.0.1:64485 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:25:15,612 - [INFO] - uvicorn.access - 127.0.0.1:64485 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:25:15,612 - [INFO] - uvicorn.access - 127.0.0.1:64485 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:25:15,994 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:25:16,786 - [INFO] - uvicorn.access - 127.0.0.1:50269 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:25:16,786 - [INFO] - uvicorn.access - 127.0.0.1:50269 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:25:16,786 - [INFO] - uvicorn.access - 127.0.0.1:50269 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:25:29,920 - [INFO] - uvicorn.access - 127.0.0.1:58170 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:25:29,920 - [INFO] - uvicorn.access - 127.0.0.1:58170 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:25:29,920 - [INFO] - uvicorn.access - 127.0.0.1:58170 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:25:29,922 - [INFO] - uvicorn.access - 127.0.0.1:60798 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:25:29,922 - [INFO] - uvicorn.access - 127.0.0.1:60798 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:25:29,922 - [INFO] - uvicorn.access - 127.0.0.1:60798 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:25:30,080 - [INFO] - httpx - HTTP Request: POST https://test.qairosolution.com/api/token "HTTP/1.1 404 NOT FOUND"
+2026-08-19 16:25:30,082 - [ERROR] - MiBOT-Client.QairoService - ⚠️ Token generation failed with status: 404
+2026-08-19 16:25:30,584 - [INFO] - MiBOT-Client.QairoService - 🌐 Fetching live anomaly records for client_id=5 from: https://test.qairosolution.com/api/anomalies
+2026-08-19 16:25:30,612 - [INFO] - uvicorn.access - 127.0.0.1:60251 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:25:30,612 - [INFO] - uvicorn.access - 127.0.0.1:60251 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:25:30,612 - [INFO] - uvicorn.access - 127.0.0.1:60251 - "GET /api/robots/ HTTP/1.1" 200
+2026-08-19 16:25:30,956 - [INFO] - httpx - HTTP Request: GET https://test.qairosolution.com/api/anomalies?client_id=5 "HTTP/1.1 200 OK"
+2026-08-19 16:25:31,412 - [INFO] - uvicorn.access - 127.0.0.1:59293 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:25:31,412 - [INFO] - uvicorn.access - 127.0.0.1:59293 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:25:31,412 - [INFO] - uvicorn.access - 127.0.0.1:59293 - "GET /api/anomaly/client/5 HTTP/1.1" 200
+2026-08-19 16:26:42,813 - [INFO] - uvicorn.access - 127.0.0.1:65024 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:26:42,813 - [INFO] - uvicorn.access - 127.0.0.1:65024 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:26:42,813 - [INFO] - uvicorn.access - 127.0.0.1:65024 - "GET /api/alerts/logs/5 HTTP/1.1" 200
+2026-08-19 16:26:42,814 - [INFO] - uvicorn.access - 127.0.0.1:61239 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:26:42,814 - [INFO] - uvicorn.access - 127.0.0.1:61239 - "GET /api/alerts/officers/5 HTTP/1.1" 200
+2026-08-19 16:26:42,814 - [INFO] - uvicorn.access - 127.0.0.1:61239 - "GET /api/alerts/officers/5 HTTP/1.1" 200

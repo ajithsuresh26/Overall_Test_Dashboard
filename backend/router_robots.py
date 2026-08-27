@@ -106,33 +106,44 @@ def resolve_image_bytes(raw_bytes: bytes):
 def safe_normalize_timestamp(item):
     """
     Extracts and normalizes timelines coming from both local cache structures
-    and the main_code pipeline.
+    and external APIs strictly using original raw timestamps without defaulting
+    to current system time (time.time()).
     """
-    raw_time = (
-        item.get("observation_date") or
-        item.get("timestamp") or
-        item.get("created_at") or
-        item.get("logged_at") or
-        item.get("detected_at")
-    )
+    if isinstance(item, dict):
+        raw_time = (
+            item.get("observation_date") or
+            item.get("timestamp") or
+            item.get("created_at") or
+            item.get("logged_at") or
+            item.get("detected_at") or
+            item.get("uploaded_at")
+        )
 
-    if not raw_time:
-        for k, v in item.items():
-            if "date" in k.lower() or "time" in k.lower():
-                raw_time = v
-                break
+        if not raw_time:
+            for k, v in item.items():
+                if "date" in k.lower() or "time" in k.lower():
+                    raw_time = v
+                    break
+    else:
+        raw_time = item
 
-    if not raw_time:
-        return int(time.time() * 1000)
+    if raw_time is None:
+        return None
 
+    # Process unix numeric epoch timestamps
     if isinstance(raw_time, (int, float)):
         if raw_time < 10000000000:
             return int(raw_time * 1000)
         return int(raw_time)
 
+    # Process standard datetime objects
+    if isinstance(raw_time, datetime):
+        return int(raw_time.timestamp() * 1000)
+
     try:
         clean_str = str(raw_time).strip()
 
+        # Handle ISO strings with timezone offsets or trailing Z
         if "+" in clean_str:
             clean_str = clean_str.split("+")[0]
         elif "-" in clean_str and clean_str.count("-") > 2:
@@ -140,11 +151,11 @@ def safe_normalize_timestamp(item):
             if ":" in r_split[1]:
                 clean_str = r_split[0]
 
-        clean_str = clean_str.replace("Z", "").split(".")[0].strip()
+        clean_str = clean_str.replace("Z", "").replace("t", " ").replace("T", " ").split(".")[0].strip()
 
         formats = (
             "%Y-%m-%d %H:%M:%S",
-            "%Y-%m-%dT%H:%M:%S",
+            "%Y-%m-%d %H:%M",
             "%Y/%m/%d %H:%M:%S",
             "%Y-%m-%d"
         )
@@ -155,10 +166,11 @@ def safe_normalize_timestamp(item):
                 return int(dt.timestamp() * 1000)
             except ValueError:
                 continue
-    except Exception:
-        pass
 
-    return int(time.time() * 1000)
+        # Retain original raw string value if format doesn't match standard lists
+        return str(raw_time)
+    except Exception:
+        return str(raw_time)
 
 
 def extract_image_reference(item):
@@ -277,32 +289,38 @@ async def register_local_activation_state(request: Request):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-# ── 3. CLOUD ANOMALIES PIPELINE WITH FLEXIBLE FALLBACK MAPS ─────────────────
+# ── 3. CLOUD ANOMALIES PIPELINE WITH COMPLETE METADATA ─────────────────────
 @router.get("/anomaly/client/{client_id}")
 async def fetch_client_anomalies(client_id: int, db: Session = Depends(get_local_db)):
-    external_anomalies = await qairo_service.get_anomalies()
+    external_anomalies = await qairo_service.get_anomalies(client_id=client_id)
 
     if external_anomalies is not None and isinstance(external_anomalies, list):
         normalized_external = []
         for item in external_anomalies:
+
+            # Filter out records belonging to other clients
+            if item.get("client_id") is not None and str(item.get("client_id")).strip() != str(client_id).strip():
+                continue
+
             assigned_robot = item.get("project_id") or item.get("robot_id") or item.get("robot") or "ROB-NODE-01"
             obs_type = item.get("observation_type") or item.get("type") or "manual alert"
-            desc = item.get("description") or item.get("activity") or "Enterprise Data Stream Frame Record."
+            activity_val = item.get("activity") or "General Site Operations"
+            desc_val = item.get("description") or "Enterprise Data Stream Frame Record."
 
             img_ref = extract_image_reference(item)
-            if not img_ref:
-                print(f"⚠️ QAIRO_NO_IMAGE_FIELD: anomaly_id={item.get('id')} keys={list(item.keys())}")
-
             detected_time = safe_normalize_timestamp(item)
 
             normalized_external.append({
                 "id": item.get("id"),
                 "robot_id": str(assigned_robot).strip().upper(),
+                "project_id": str(assigned_robot).strip().upper(),
+                "observation_type": obs_type.strip(),
                 "type": obs_type.lower().strip(),
-                "description": desc,
+                "activity": activity_val.strip(),
+                "description": desc_val,
                 "image_url": img_ref,
-                "confidence": item.get("confidence", 0.95),
-                "timestamp": detected_time
+                "timestamp": detected_time,
+                "observation_date": item.get("observation_date") or detected_time
             })
         return {
             "status": "success",
@@ -311,6 +329,7 @@ async def fetch_client_anomalies(client_id: int, db: Session = Depends(get_local
             "anomalies": normalized_external
         }
 
+    # Fallback to local SQLite cache if cloud endpoint is unreachable
     anomalies = db.query(models_local.LocalAnomaly).order_by(models_local.LocalAnomaly.id.desc()).all()
     decrypted_list = []
     for a in anomalies:
@@ -326,20 +345,19 @@ async def fetch_client_anomalies(client_id: int, db: Session = Depends(get_local
             except Exception:
                 decrypted_image = a.image_url
 
-        record_timestamp = int(time.time() * 1000)
-        if hasattr(a, "timestamp") and a.timestamp:
-            if isinstance(a.timestamp, datetime):
-                record_timestamp = int(a.timestamp.timestamp() * 1000)
-            else:
-                record_timestamp = safe_normalize_timestamp({"timestamp": a.timestamp})
+        record_timestamp = safe_normalize_timestamp(a.timestamp) if a.timestamp else None
 
         decrypted_list.append({
             "id": a.id,
             "robot_id": a.robot_id,
+            "project_id": a.robot_id,
             "type": a.type,
-            "description": a.description,
+            "observation_type": getattr(a, 'observation_type', a.type) or a.type,
+            "activity": getattr(a, 'activity', 'General Site Operations') or 'General Site Operations',
+            "description": a.description or "Enterprise Observation Log",
             "image_url": decrypted_image,
             "timestamp": record_timestamp,
+            "observation_date": record_timestamp
         })
     return {
         "status": "success",
@@ -504,8 +522,6 @@ async def trigger_officer_alerts(request: Request, db: Session = Depends(get_loc
                         msg_alternative = MIMEMultipart("alternative")
                         msg.attach(msg_alternative)
 
-                        image_attached = False
-                        image_data_uri = None
                         if image_url:
                             try:
                                 raw_str = str(image_url).strip()
@@ -551,9 +567,6 @@ async def trigger_officer_alerts(request: Request, db: Session = Depends(get_loc
                                         msg_image_attachment = MIMEImage(image_bytes, _subtype=subtype)
                                         msg_image_attachment.add_header("Content-Disposition", "attachment", filename=f"anomaly_capture_{robot_id}.{subtype}")
                                         msg.attach(msg_image_attachment)
-
-                                        image_attached = True
-                                        image_data_uri = f"data:image/{subtype};base64,{base64.b64encode(image_bytes).decode('ascii')}"
                             except Exception as img_err:
                                 print(f"❌ SMTP_IMAGE_ATTACH_FAIL robot={robot_id}: {img_err}")
 
@@ -608,27 +621,23 @@ async def trigger_officer_alerts(request: Request, db: Session = Depends(get_loc
                                               <td style="padding: 12px 0; color: #94a3b8; font-weight: 700; vertical-align: top;">INCIDENT DETAILS</td>
                                               <td style="padding: 12px 0; color: #475569; font-weight: 500; line-height: 1.5; word-break: break-word;">{description}</td>
                                             </tr>
-                                                    
-                                            </div>
-                                            </td>
-                                        </tr>
-                                        </table>
-                                    </body>
-                                    </html>
-                                    
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </body>
+                        </html>
                         """
                         msg_html = MIMEText(html_body, "html")
                         msg_alternative.attach(msg_html)
 
-                        # Parse manually entered port values dynamically
                         target_port = int(cfg.smtp_port) if cfg.smtp_port else 587
                         is_implicit_tls = True if target_port == 465 else False
 
-                        # start_tls=False disables aiosmtplib's automatic
-                        # opportunistic STARTTLS during connect() so the
-                        # manual starttls() call below doesn't collide with
-                        # an already-upgraded connection (see note in
-                        # test_local_email_handshake for the full explanation).
                         smtp_client = aiosmtplib.SMTP(
                             hostname=cfg.smtp_host,
                             port=target_port,
@@ -638,7 +647,6 @@ async def trigger_officer_alerts(request: Request, db: Session = Depends(get_loc
                         )
                         await smtp_client.connect()
 
-                        # Fix context mismatches on implicit vs explicit TLS handshakes
                         if not is_implicit_tls and (target_port == 587 or cfg.use_tls):
                             await smtp_client.starttls()
 
@@ -713,7 +721,6 @@ async def save_local_email_config(request: Request, client_id: int, db: Session 
         cfg.sender_name = form_data.get("sender_name", "Safety Alert")
         cfg.use_tls = form_data.get("use_tls", True)
         
-        # intercept proxy value and skip mutating database row value if unchanged
         incoming_pass = (form_data.get("smtp_pass") or "").strip()
         if incoming_pass != "KEEP_EXISTING_PASSWORD":
             cfg.smtp_pass = incoming_pass
@@ -737,7 +744,6 @@ async def test_local_email_handshake(client_id: int, test_recipient: str, reques
         use_tls = form_data.get("use_tls", True)
         test_recipient = (test_recipient or "").strip()
 
-        # If frontend passed the token, extract the active password value safely out of the local cache array
         if password == "KEEP_EXISTING_PASSWORD":
             saved_cfg = db.query(models_local.LocalClientEmailConfig).filter(models_local.LocalClientEmailConfig.client_id == client_id).first()
             if saved_cfg and saved_cfg.smtp_pass:
@@ -748,7 +754,6 @@ async def test_local_email_handshake(client_id: int, test_recipient: str, reques
         if not host or not user or not password:
             raise HTTPException(status_code=400, detail="Host, username, and credentials payload are required fields.")
 
-        # ── FAST PRE-CHECK ──
         probe = probe_smtp_port(host, port, timeout=5.0)
         if not probe["reachable"]:
             raise HTTPException(
@@ -820,11 +825,6 @@ def create_local_safety_officer(form_data: dict, db: Session = Depends(get_local
 
 @router.put("/alerts/officers/{officer_id}")
 def update_local_safety_officer(officer_id: int, form_data: dict, db: Session = Depends(get_local_db)):
-    """
-    Edits an existing safety officer profile. The dashboard's OfficerPanel
-    edit flow calls PUT here — this route was previously missing, which is
-    why edits were coming back as 405 Method Not Allowed.
-    """
     try:
         officer_record = db.query(models_local.LocalSafetyOfficer).filter(models_local.LocalSafetyOfficer.id == officer_id).first()
 
@@ -856,10 +856,6 @@ def update_local_safety_officer(officer_id: int, form_data: dict, db: Session = 
 
 @router.delete("/alerts/officers/{officer_id}")
 def delete_local_safety_officer(officer_id: int, db: Session = Depends(get_local_db)):
-    """
-    Safely purges an active security officer profile from the local database workspace
-    along with any associated alert cascade histories.
-    """
     try:
         officer_record = db.query(models_local.LocalSafetyOfficer).filter(models_local.LocalSafetyOfficer.id == officer_id).first()
 
